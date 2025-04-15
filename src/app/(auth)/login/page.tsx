@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Googleconfirm } from "./_compoment/Googleconfirm";
 import { ProfileForm } from "./_compoment/LoginSign-in";
 
@@ -16,11 +17,13 @@ const Page = () => {
         <p className="px-5 text-[16px] font-semibold">or</p>
         <div className="w-[50%] h-[0px] border-[1px] border-solid border-[#D1D5DB]"></div>
       </div>
-      <Googleconfirm/>
+      <Googleconfirm />
       <div className="flex w-360px justify-center mt-4">
-        <p>Don’t have an account?</p><button>Join Now</button>
+        <Link href={"/signup"}>
+          <p>Don’t have an account?</p>
+          <button>Join Now</button>
+        </Link>
       </div>
-      
     </div>
   );
 };

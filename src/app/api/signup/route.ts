@@ -8,7 +8,6 @@ connectMongoDb();
 export async function POST(req: NextRequest) {
   try {
     const { email, password } = await req.json();
-    console.log("💡 POST received data:", email, password);
 
     if (!email) {
       return NextResponse.json(
@@ -27,13 +26,11 @@ export async function POST(req: NextRequest) {
     }
 
     const hashedPassword = hashPassword(password);
-    console.log("✅ Created hashedPassword:", hashedPassword);
 
     const newStaff = await UserModel.create({
       email,
       password: hashedPassword,
     });
-    console.log("✅ Created newStaff:", newStaff);
 
     return NextResponse.json(
       { message: "User successfully registered.", data: newStaff },

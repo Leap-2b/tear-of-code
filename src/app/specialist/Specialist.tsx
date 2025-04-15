@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 
 import {
+  Badge,
   Clock,
   MapPin,
   MessageSquare,

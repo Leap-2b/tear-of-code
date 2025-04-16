@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 connectMongoDb();
 
-export async function GET(req: Request, res: Response) {
+export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
     const _id = searchParams.get("_id");

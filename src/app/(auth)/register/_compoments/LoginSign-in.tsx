@@ -12,14 +12,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { LockKeyhole, Mail, EyeClosed, Eye } from "lucide-react";
+import { EyeClosed, Eye } from "lucide-react";
 import { useState } from "react";
 const formSchema = z.object({
   password: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "password must be at least 2 characters.",
   }),
   email: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "email must be at least 2 characters.",
   }),
 });
 

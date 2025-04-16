@@ -11,8 +11,7 @@ import React from "react";
 
 export const HomePage = () => {
   return (
-    <div className="max-w-[480px] w-full h-screen overflow-scroll flex flex-col gap-[30px] bg-[#e0e0e0]  ">
-      Home
+    <div className="max-w-[480px] w-full h-screen overflow-scroll flex flex-col gap-[30px] bg-[#ffffff]  ">
       <div className="w-full px-4 flex flex-col gap-[30px] ">
         <Carousel className="w-full ">
           <CarouselContent>

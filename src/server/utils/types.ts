@@ -38,7 +38,7 @@ export interface AppointmentType {
   date: Date;
   status: AppointmentStatusEnum;
   paid: boolean;
-  service: ServiceEnum;
+  serviceIds: ServiceType;
   price: number;
   createdAt: Date;
   updatedAt: Date;
@@ -50,4 +50,15 @@ export interface FeedbackType {
   staffId: StaffType;
   rating: number;
   createdAt?: Date;
+}
+
+export interface ServiceType {
+  _id: Schema.Types.ObjectId;
+  name: string;
+  price: number;
+  category: CategoryEnum; // HAIR, NAILS
+  duration: number; // minutes
+  description: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

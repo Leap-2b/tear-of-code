@@ -2,7 +2,6 @@ import { Schema } from "mongoose";
 import {
   AppointmentStatusEnum,
   CategoryEnum,
-  ServiceEnum,
   StaffRoleEnum,
 } from "../constant";
 
@@ -11,6 +10,7 @@ export interface UserType {
   email: string;
   password: string;
   phoneNumber: string;
+  username: string;
   createdAt: Date;
   updatedAt: Date;
 }

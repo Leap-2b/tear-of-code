@@ -9,11 +9,6 @@ export enum StaffRoleEnum {
   ADMIN = "ADMIN",
 }
 
-export enum ServiceEnum {
-  BASIC = "BASIC",
-  STANDART = "STANDART",
-}
-
 export enum CategoryEnum {
   HAIR = "HAIR",
   NAILS = "NAILS",

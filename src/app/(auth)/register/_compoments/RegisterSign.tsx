@@ -15,21 +15,28 @@ import { Input } from "@/components/ui/input";
 import { LockKeyhole, Mail, EyeClosed, Eye } from "lucide-react";
 import { useState } from "react";
 const formSchema = z.object({
-  password: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  username: z.string().min(3, {
+    message: "Username must be at least 3 characters.",
+  }),
+  password: z.string().min(6, {
+    message: "Passowrd must be at least 6 characters.",
+  }),
+  confirmpassword: z.string().min(6, {
+    message: "Confirm password must be at least 6 characters.",
   }),
   email: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "Email must be at least 2 characters.",
   }),
 });
 
-export function ProfileForm() {
-  const [showpassword, nowshowpassword] = useState(true);
+export function RegisterSign() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
       password: "",
+      confirmpassword: "",
+      username: "",
     },
   });
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -42,6 +49,26 @@ export function ProfileForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-4 min-w-[375px] mx-auto"
       >
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Full Name</FormLabel>
+              <FormControl>
+                <div className="w-[343px] h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
+                  <Input
+                    placeholder="Full Name"
+                    type="text"
+                    {...field}
+                    className="w-full h-[22px] text-[16px] font-normal focus-visible:ring-transparent border-none  shadow-none order-none"
+                  />
+                </div>
+              </FormControl>
+              <FormMessage /> {/* Error will show here if invalid */}
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="email"
@@ -72,41 +99,42 @@ export function ProfileForm() {
                 <div className="w-[343px] h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input
                     placeholder="password"
-                    type={showpassword ? "password" : "text"}
+                    type="password"
                     {...field}
                     className="w-full h-[22px] text-[16px] font-normal rounded-full focus-visible:ring-transparent border-none shadow-none order-none "
                   />
-                  <button
-                    type="button"
-                    onClick={() => nowshowpassword(!showpassword)}
-                    style={{
-                      background: "none",
-                      border: "none",
-                      padding: 0,
-                      cursor: "pointer",
-                    }}
-                  >
-                    {showpassword ? (
-                      <EyeClosed color="#ADB3BC" />
-                    ) : (
-                      <Eye color="#ADB3BC" />
-                    )}
-                  </button>
                 </div>
               </FormControl>
               <FormMessage /> {/* Error will show here if invalid */}
             </FormItem>
           )}
         />
-        <div className="flex justify-end w-[343px]">
-          <p className="text-[#156778]">Forgot password?</p>
-        </div>
+        <FormField
+          control={form.control}
+          name="confirmpassword"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Confirm Password</FormLabel>
+              <FormControl>
+                <div className="w-[343px] h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
+                  <Input
+                    placeholder="Confirm Password"
+                    type="text"
+                    {...field}
+                    className="w-full h-[22px] text-[16px] font-normal focus-visible:ring-transparent border-none  shadow-none order-none"
+                  />
+                </div>
+              </FormControl>
+              <FormMessage /> {/* Error will show here if invalid */}
+            </FormItem>
+          )}
+        />
         <div className="w-full flex justify-center">
           <Button
             type="submit"
             className="w-[343px] h-[54px] rounded-[8px] shadow-2xl mx-auto"
           >
-            Sign in
+            Register
           </Button>
         </div>
       </form>

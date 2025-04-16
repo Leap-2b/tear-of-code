@@ -130,7 +130,7 @@ export function RegisterSign() {
         <div className="w-full flex justify-center">
           <Button
             type="submit"
-            className="w-[343px] h-[54px] rounded-[8px] shadow-2xl mx-auto"
+            className="max-w-[343px] h-[54px] rounded-[8px] shadow-2xl mx-auto"
           >
             Register
           </Button>

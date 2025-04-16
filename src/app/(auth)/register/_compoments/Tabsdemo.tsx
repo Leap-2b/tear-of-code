@@ -6,7 +6,7 @@ import { RegisterSign } from "./RegisterSign";
 
 export function TabsDemo() {
   return (
-    <Tabs defaultValue="Email" className="w-[400px] mx-auto">
+    <Tabs defaultValue="Email" className="max-w-[360px] mx-auto">
       <TabsList className="grid w-full grid-cols-2 border-none">
         <TabsTrigger value="Email">Login</TabsTrigger>
         <TabsTrigger value="password">Register</TabsTrigger>

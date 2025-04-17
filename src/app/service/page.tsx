@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Clock, Scissors, Sparkles } from "lucide-react";
+import AskedQuest from "./AskedQuest";
 
 export default function Service() {
   return (
@@ -136,6 +137,7 @@ export default function Service() {
           <div></div>
         </TabsContent>
       </Tabs>
+      <AskedQuest />
     </div>
   );
 }

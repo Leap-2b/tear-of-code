@@ -14,7 +14,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { EyeClosed, Eye } from "lucide-react";
 import { useState } from "react";
-import axios from 'axios';
 
 const formSchema = z.object({
   password: z.string().min(2, {
@@ -24,11 +23,6 @@ const formSchema = z.object({
     message: "email must be at least 2 characters.",
   }),
 });
-const loginSchema = z.object({
-  username: z.string(),
-  password: z.string()
-});
-type LoginType = z.infer<typeof loginSchema>
 export function ProfileForm() {
   const [showpassword, nowshowpassword] = useState(true);
   const form = useForm<z.infer<typeof formSchema>>({

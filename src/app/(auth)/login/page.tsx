@@ -1,5 +1,5 @@
-import { Googleconfirm } from "./_compoment/Googleconfirm";
-import { ProfileForm } from "./_compoment/LoginSign-in";
+import { Googleconfirm } from "./_components/Googleconfirm";
+import { ProfileForm } from "./_components/LoginSign-in";
 
 const Page = () => {
   return (

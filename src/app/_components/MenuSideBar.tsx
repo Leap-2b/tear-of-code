@@ -2,7 +2,6 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -18,9 +17,9 @@ export default function MenusideBar() {
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle>Service</SheetTitle>
-            <SheetTitle>Our Barbers</SheetTitle>
-            <SheetTitle>Login /Register</SheetTitle>
+            <SheetTitle>Үйлчилгээ</SheetTitle>
+            <SheetTitle>Үсчид</SheetTitle>
+            <SheetTitle>Нэвтрэх / Бүртгүүлэх</SheetTitle>
           </SheetHeader>
         </SheetContent>
       </Sheet>

@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 connectMongoDb();
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req: Request) {
   try {
     const { password, email } = await req.json();
 

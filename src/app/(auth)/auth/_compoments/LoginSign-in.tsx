@@ -6,24 +6,21 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { LockKeyhole, Mail, EyeClosed, Eye } from "lucide-react";
+import { EyeClosed, Eye } from "lucide-react";
 import { useState } from "react";
-const formSchema = z.object({
-  password: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-  email: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-});
 
+const formSchema = z.object({
+  password: z.string().min(6, {
+    message: "нууц үг дор хаяж 6 тэмдэгт байх ёстой.",
+  }),
+  email: z.string(),
+});
 export function ProfileForm() {
   const [showpassword, nowshowpassword] = useState(true);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -33,29 +30,30 @@ export function ProfileForm() {
       password: "",
     },
   });
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values); // ✅ Validated and type-safe
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
   }
 
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-4 min-w-[375px] mx-auto"
+        className="space-y-4 w-full mx-auto"
       >
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
+              <FormLabel>Имэйл</FormLabel>
               <FormControl>
-                <div className="w-[343px] h-[54px] p-5 text-[16px] font-normal rounded-full bg-[#F0F3F6] flex justify-center items-center overflow-hidden hover:border-[#156778] hover:border-2 m-auto">
-                  <Mail color="#ADB3BC" />
+                <div className="w-full h-[40px] py-5 px-1 text-[16px] font-normal rounded-[5px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input
-                    placeholder="email"
+                    placeholder="m@example.com"
                     type="email"
                     {...field}
-                    className="w-full h-[22px] text-[16px] font-normal rounded-full focus-visible:ring-transparent border-none  shadow-none order-none"
+                    className="w-full h-[40px] text-[16px] font-normal focus-visible:ring-transparent border-none  shadow-none order-none"
                   />
                 </div>
               </FormControl>
@@ -68,14 +66,13 @@ export function ProfileForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
+              <FormLabel>Нууц үг</FormLabel>
               <FormControl>
-                <div className="w-[343px] h-[54px] p-5 text-[16px] font-normal rounded-full bg-[#F0F3F6] flex justify-center items-center overflow-hidden hover:border-[#156778] hover:border-2 m-auto">
-                  <LockKeyhole color="#ADB3BC" />
+                <div className="w-full h-[40px] py-5 px-1 text-[16px] font-normal rounded-[5px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input
-                    placeholder="password"
-                    type={showpassword ? "text" : "password"}
+                    type={showpassword ? "password" : "text"}
                     {...field}
-                    className="w-full h-[22px] text-[16px] font-normal rounded-full focus-visible:ring-transparent border-none  shadow-none order-none "
+                    className="w-full h-[40px] text-[16px] font-normal rounded-full focus-visible:ring-transparent border-none shadow-none order-none "
                   />
                   <button
                     type="button"
@@ -99,15 +96,15 @@ export function ProfileForm() {
             </FormItem>
           )}
         />
-        <div className="flex justify-end w-[343px]">
-          <p className="text-[#156778]">Forgot password?</p>
+        <div className="flex justify-end w-full">
+          <p className="text-[#156778] text-[14px]">Нууц үгээ мартсан уу?</p>
         </div>
         <div className="w-full flex justify-center">
           <Button
             type="submit"
-            className="w-[343px] h-[54px] rounded-full bg-[#156778] hover:bg-[#2e5f69] shadow-2xl mt-[120px] mx-auto"
+            className="w-full h-[40px] rounded-[5px] shadow-2xl mx-auto"
           >
-            Sign in
+            Нэвтрэх
           </Button>
         </div>
       </form>

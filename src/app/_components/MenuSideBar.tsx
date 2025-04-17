@@ -2,7 +2,6 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -19,11 +18,6 @@ export default function MenusideBar() {
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle>Service</SheetTitle>
-            <Link href={"/our-staff"}>
-              <SheetTitle>Our Barbers</SheetTitle>
-            </Link>
-            <SheetTitle>Login /Register</SheetTitle>
           </SheetHeader>
         </SheetContent>
       </Sheet>

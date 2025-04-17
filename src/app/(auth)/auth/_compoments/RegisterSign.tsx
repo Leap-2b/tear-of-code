@@ -14,17 +14,13 @@ import {
 import { Input } from "@/components/ui/input";
 const formSchema = z.object({
   username: z.string().min(3, {
-    message: "Username must be at least 3 characters.",
+    message: "Хэрэглэгчийн нэр дор хаяж 3 тэмдэгттэй байх ёстой.",
   }),
   password: z.string().min(6, {
-    message: "Passowrd must be at least 6 characters.",
+    message: "Нууц үг дор хаяж 6 тэмдэгттэй байх ёстой.",
   }),
-  confirmpassword: z.string().min(6, {
-    message: "Confirm password must be at least 6 characters.",
-  }),
-  email: z.string().min(2, {
-    message: "Email must be at least 2 characters.",
-  }),
+  confirmpassword: z.string(),
+  email: z.string(),
 });
 
 export function RegisterSign() {
@@ -71,7 +67,7 @@ export function RegisterSign() {
           name="email"
           render={({ field }) => (
             <FormItem className="w-full ">
-              <FormLabel>Имэйл</FormLabel> 
+              <FormLabel>Имэйл</FormLabel>
               <FormControl>
                 <div className="w-full h-[40px] py-5 px-1 text-[16px] font-normal rounded-[5px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input

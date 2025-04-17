@@ -16,12 +16,10 @@ import { EyeClosed, Eye } from "lucide-react";
 import { useState } from "react";
 
 const formSchema = z.object({
-  password: z.string().min(2, {
-    message: "password must be at least 2 characters.",
+  password: z.string().min(6, {
+    message: "нууц үг дор хаяж 6 тэмдэгт байх ёстой.",
   }),
-  email: z.string().min(2, {
-    message: "email must be at least 2 characters.",
-  }),
+  email: z.string(),
 });
 export function ProfileForm() {
   const [showpassword, nowshowpassword] = useState(true);

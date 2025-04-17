@@ -15,7 +15,6 @@ export function Header() {
           className="size-5 border-none "
           onClick={() => router.push("login")}
         >
-          {" "}
           <UserCircle className="size-5" />
         </Button>
         <MenusideBar />

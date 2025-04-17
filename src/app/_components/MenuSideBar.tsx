@@ -7,6 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { MenuSquare } from "lucide-react";
+import Link from "next/link";
 
 export default function MenusideBar() {
   return (
@@ -17,9 +18,6 @@ export default function MenusideBar() {
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle>Үйлчилгээ</SheetTitle>
-            <SheetTitle>Үсчид</SheetTitle>
-            <SheetTitle>Нэвтрэх / Бүртгүүлэх</SheetTitle>
           </SheetHeader>
         </SheetContent>
       </Sheet>

@@ -8,6 +8,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { MenuSquare } from "lucide-react";
+import Link from "next/link";
 
 export default function MenusideBar() {
   return (
@@ -19,7 +20,9 @@ export default function MenusideBar() {
         <SheetContent>
           <SheetHeader>
             <SheetTitle>Service</SheetTitle>
-            <SheetTitle>Our Barbers</SheetTitle>
+            <Link href={"/our-staff"}>
+              <SheetTitle>Our Barbers</SheetTitle>
+            </Link>
             <SheetTitle>Login /Register</SheetTitle>
           </SheetHeader>
         </SheetContent>

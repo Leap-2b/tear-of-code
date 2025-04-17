@@ -1,6 +1,6 @@
 import React from "react";
-import CalendarWithTime from "../_components/CalendarWithTime";
-import AppointmentSummary from "../_components/AppointmentSummary";
+import CalendarWithTime from "./_components/CalendarWithTime";
+import AppointmentSummary from "./_components/AppointmentSummary";
 
 const BookingPage = () => {
   return (

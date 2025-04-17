@@ -1,7 +1,3 @@
-import React from "react";
-import CalendarWithTime from "../_components/CalendarWithTime";
-import AppointmentSummary from "../_components/AppointmentSummary";
-
 const BookingPage = () => {
   return (
     <div className="max-w-[480px] w-full px-4 py-8 bg-[#ffffff] ">

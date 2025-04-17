@@ -9,11 +9,11 @@ export default function StaffsCards() {
   console.log("staff", staffs);
   return (
     <div className="flex flex-col gap-6">
-      {staffs?.map((staff) => {
+      {staffs?.map((staff, index) => {
         return (
-          <div className="rounded-lg border-[1px] shadow-sm ">
+          <div key={index} className="rounded-lg border-[1px] shadow-sm ">
             <Image
-              src="/placeholder.svg?height=400&width=300"
+              src={staff.image}
               alt={""}
               width={600}
               height={600}

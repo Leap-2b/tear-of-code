@@ -14,6 +14,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { EyeClosed, Eye } from "lucide-react";
 import { useState } from "react";
+import axios from 'axios';
+
 const formSchema = z.object({
   password: z.string().min(2, {
     message: "password must be at least 2 characters.",
@@ -22,7 +24,11 @@ const formSchema = z.object({
     message: "email must be at least 2 characters.",
   }),
 });
-
+const loginSchema = z.object({
+  username: z.string(),
+  password: z.string()
+});
+type LoginType = z.infer<typeof loginSchema>
 export function ProfileForm() {
   const [showpassword, nowshowpassword] = useState(true);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -32,26 +38,27 @@ export function ProfileForm() {
       password: "",
     },
   });
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values); // ✅ Validated and type-safe
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
   }
 
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-4 min-w-[375px] mx-auto"
+        className="space-y-4 w-full mx-auto"
       >
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Имэйл</FormLabel>
               <FormControl>
-                <div className="w-[343px] h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
+                <div className="w-full h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input
-                    placeholder="Email"
+                    placeholder="m@example.com"
                     type="email"
                     {...field}
                     className="w-full h-[22px] text-[16px] font-normal focus-visible:ring-transparent border-none  shadow-none order-none"
@@ -67,11 +74,10 @@ export function ProfileForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Нууц үг</FormLabel>
               <FormControl>
-                <div className="w-[343px] h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
+                <div className="w-full h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input
-                    placeholder="password"
                     type={showpassword ? "password" : "text"}
                     {...field}
                     className="w-full h-[22px] text-[16px] font-normal rounded-full focus-visible:ring-transparent border-none shadow-none order-none "
@@ -98,15 +104,15 @@ export function ProfileForm() {
             </FormItem>
           )}
         />
-        <div className="flex justify-end w-[343px]">
-          <p className="text-[#156778]">Forgot password?</p>
+        <div className="flex justify-end w-full">
+          <p className="text-[#156778]">Нууц үгээ мартсан уу?</p>
         </div>
         <div className="w-full flex justify-center">
           <Button
             type="submit"
-            className="w-[343px] h-[54px] rounded-[8px] shadow-2xl mx-auto"
+            className="w-full h-[54px] rounded-[8px] shadow-2xl mx-auto"
           >
-            Sign in
+            Нэвтрэх
           </Button>
         </div>
       </form>

@@ -45,18 +45,17 @@ export function RegisterSign() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-4 min-w-[375px] mx-auto"
+        className="space-y-4 w-full mx-auto"
       >
         <FormField
           control={form.control}
           name="username"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Full Name</FormLabel>
+            <FormItem className="w-full ">
+              <FormLabel className="w-full">Хэрэглэгчийн нэр</FormLabel>
               <FormControl>
-                <div className="w-[343px] h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
+                <div className="w-full h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input
-                    placeholder="Full Name"
                     type="text"
                     {...field}
                     className="w-full h-[22px] text-[16px] font-normal focus-visible:ring-transparent border-none  shadow-none order-none"
@@ -71,12 +70,12 @@ export function RegisterSign() {
           control={form.control}
           name="email"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
+            <FormItem className="w-full ">
+              <FormLabel>Имэйл</FormLabel> 
               <FormControl>
-                <div className="w-[343px] h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
+                <div className="w-full h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input
-                    placeholder="Email"
+                    placeholder="m@example.com"
                     type="email"
                     {...field}
                     className="w-full h-[22px] text-[16px] font-normal focus-visible:ring-transparent border-none  shadow-none order-none"
@@ -91,12 +90,11 @@ export function RegisterSign() {
           control={form.control}
           name="password"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
+            <FormItem className="w-full ">
+              <FormLabel>Нууц үг</FormLabel>
               <FormControl>
-                <div className="w-[343px] h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
+                <div className="w-full h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input
-                    placeholder="password"
                     type="password"
                     {...field}
                     className="w-full h-[22px] text-[16px] font-normal rounded-full focus-visible:ring-transparent border-none shadow-none order-none "
@@ -111,12 +109,11 @@ export function RegisterSign() {
           control={form.control}
           name="confirmpassword"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Confirm Password</FormLabel>
+            <FormItem className="w-full ">
+              <FormLabel>Нууц үгээ баталгаажуулна уу</FormLabel>
               <FormControl>
-                <div className="w-[343px] h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
+                <div className="w-full h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input
-                    placeholder="Confirm Password"
                     type="text"
                     {...field}
                     className="w-full h-[22px] text-[16px] font-normal focus-visible:ring-transparent border-none  shadow-none order-none"
@@ -127,12 +124,12 @@ export function RegisterSign() {
             </FormItem>
           )}
         />
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center mt-8">
           <Button
             type="submit"
-            className="max-w-[343px] h-[54px] rounded-[8px] shadow-2xl mx-auto"
+            className="w-full h-[54px] rounded-[8px] shadow-2xl mx-auto"
           >
-            Register
+            Бүртгүүлэх
           </Button>
         </div>
       </form>

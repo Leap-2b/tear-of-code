@@ -6,17 +6,17 @@ import { RegisterSign } from "./RegisterSign";
 
 export function TabsDemo() {
   return (
-    <Tabs defaultValue="Email" className="w-full mx-auto">
-      <TabsList className="grid w-full grid-cols-2 border-none">
-        <TabsTrigger value="Email">Нэвтрэх</TabsTrigger>
-        <TabsTrigger value="password">Бүртгүүлэх</TabsTrigger>
+    <Tabs defaultValue="Login" className="w-full mx-auto">
+      <TabsList className="grid w-full grid-cols-2 border-none rounded-[6px]">
+        <TabsTrigger value="Login" className="rounded-[4px]">Нэвтрэх</TabsTrigger>
+        <TabsTrigger value="register" className="rounded-[4px]">Бүртгүүлэх</TabsTrigger>
       </TabsList> 
-      <TabsContent value="Email" className="">
+      <TabsContent value="Login" className="">
         <Card className="border-none shadow-none">
           <ProfileForm />
         </Card>
       </TabsContent>
-      <TabsContent value="password">
+      <TabsContent value="register">
         <Card className="border-none shadow-none">
           <RegisterSign />
         </Card>

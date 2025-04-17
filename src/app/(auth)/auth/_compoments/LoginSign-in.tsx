@@ -50,12 +50,12 @@ export function ProfileForm() {
             <FormItem>
               <FormLabel>Имэйл</FormLabel>
               <FormControl>
-                <div className="w-full h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
+                <div className="w-full h-[40px] py-5 px-1 text-[16px] font-normal rounded-[5px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input
                     placeholder="m@example.com"
                     type="email"
                     {...field}
-                    className="w-full h-[22px] text-[16px] font-normal focus-visible:ring-transparent border-none  shadow-none order-none"
+                    className="w-full h-[40px] text-[16px] font-normal focus-visible:ring-transparent border-none  shadow-none order-none"
                   />
                 </div>
               </FormControl>
@@ -70,11 +70,11 @@ export function ProfileForm() {
             <FormItem>
               <FormLabel>Нууц үг</FormLabel>
               <FormControl>
-                <div className="w-full h-[54px] p-5 text-[16px] font-normal rounded-[8px] flex justify-center items-center m-auto border-1 bg-[#fff]">
+                <div className="w-full h-[40px] py-5 px-1 text-[16px] font-normal rounded-[5px] flex justify-center items-center m-auto border-1 bg-[#fff]">
                   <Input
                     type={showpassword ? "password" : "text"}
                     {...field}
-                    className="w-full h-[22px] text-[16px] font-normal rounded-full focus-visible:ring-transparent border-none shadow-none order-none "
+                    className="w-full h-[40px] text-[16px] font-normal rounded-full focus-visible:ring-transparent border-none shadow-none order-none "
                   />
                   <button
                     type="button"
@@ -99,12 +99,12 @@ export function ProfileForm() {
           )}
         />
         <div className="flex justify-end w-full">
-          <p className="text-[#156778]">Нууц үгээ мартсан уу?</p>
+          <p className="text-[#156778] text-[14px]">Нууц үгээ мартсан уу?</p>
         </div>
         <div className="w-full flex justify-center">
           <Button
             type="submit"
-            className="w-full h-[54px] rounded-[8px] shadow-2xl mx-auto"
+            className="w-full h-[40px] rounded-[5px] shadow-2xl mx-auto"
           >
             Нэвтрэх
           </Button>

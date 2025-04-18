@@ -8,7 +8,6 @@ connectMongoDb();
 export async function POST(req: Request) {
   try {
     const { password, email } = await req.json();
-
     const user = await UserModel.findOne({ email }).select("+password");
 
     if (!user) {
@@ -23,7 +22,7 @@ export async function POST(req: Request) {
     if (!isPasswordCorrect) {
       return NextResponse.json(
         { message: "Нууц үг эсвэл имэйл буруу байна." },
-        { status: 401 }
+        { status: 402 }
       );
     }
 

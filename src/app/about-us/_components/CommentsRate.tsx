@@ -26,9 +26,9 @@ export const CommentsRate = () => {
                 <Star />
               </div>
               <p className="mb-4 text-gray-600 ">
-                "I've been coming to StyleCut for years and have never been
-                disappointed. John always knows exactly how I like my hair and
-                keeps up with the latest trends."
+                "Би StyleCut-д олон жилийн турш ирсэн бөгөөд хэзээ ч сэтгэл
+                дундуур байгаагүй. Жон үргэлж миний үсэнд ямар дуртайг мэддэг
+                бөгөөд сүүлийн үеийн чиг хандлагыг дагаж мөрддөг."
               </p>
               <div className="flex items-center gap-4 ">
                 <Avatar className="w-10 h-10 ">
@@ -38,7 +38,7 @@ export const CommentsRate = () => {
                 <div>
                   <p className="font-medium ">Michael R.</p>
                   <p className="text-sm text-gray-500 ">
-                    Loyal client since 2015
+                    2015 оноос хойш үнэнч үйлчлүүлэгч
                   </p>
                 </div>
               </div>
@@ -54,9 +54,10 @@ export const CommentsRate = () => {
                 <Star />
               </div>
               <p className="mb-4 text-gray-600 ">
-                "Sarah transformed my look completely! Her attention to detail
-                and understanding of what would suit my face shape was
-                impressive. Best color treatment I've ever had."
+                "Сара миний дүр төрхийг бүрэн өөрчилсөн! Түүний нарийн ширийн
+                зүйлийг анхаарч үздэг мөн миний нүүрний хэлбэрт юу тохирохыг
+                ойлгох гайхалтай. Миний хэрэглэж байсан хамгийн сайн өнгөт
+                эмчилгээ."
               </p>
               <div className="flex items-center gap-4 ">
                 <Avatar className="w-10 h-10 ">
@@ -65,7 +66,7 @@ export const CommentsRate = () => {
                 </Avatar>
                 <div>
                   <p className="font-medium ">Jennifer T.</p>
-                  <p className="text-sm text-gray-500 ">Jennifer T.</p>
+                  <p className="text-sm text-gray-500 ">Байнгын үйлчлүүлэгч</p>
                 </div>
               </div>
             </div>
@@ -80,9 +81,9 @@ export const CommentsRate = () => {
                 <Star />
               </div>
               <p className="mb-4 text-gray-600 ">
-                "The online booking system is so convenient, and the service is
-                always top-notch. Lisa's nail art is incredible—I always get
-                compliments after my appointments!"
+                "Онлайн захиалгын систем нь маш тохиромжтой, үйлчилгээ нь үргэлж
+                дээд зэрэглэлийн. Лизагийн хумсны урлаг үнэхээр гайхалтай—би
+                үргэлж авдаг миний уулзалтын дараа магтаал!"
               </p>
               <div className="flex items-center  gap-4">
                 <Avatar className="w-10 h-10 ">
@@ -91,7 +92,7 @@ export const CommentsRate = () => {
                 </Avatar>
                 <div>
                   <p className="font-medium ">Amanda K.</p>
-                  <p className="text-sm text-gray-500 ">Monthly visitor</p>
+                  <p className="text-sm text-gray-500 ">Сар бүрийн зочин</p>
                 </div>
               </div>
             </div>

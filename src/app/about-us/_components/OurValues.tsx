@@ -9,8 +9,8 @@ export const OurValues = () => {
           <div className="mx-auto max-w-3xl text-center ">
             <h2 className="mb-4 text-3xl font-bold">Бидний үнэт зүйлс</h2>
             <p className="mb-12 text-gray-600">
-              At StyleCut, everything we do is guided by our commitment to
-              excellence and these core principles
+              StyleCut-д бидний хийдэг бүх зүйл бидний амлалтад тулгуурладаг
+              шилдэг болон эдгээр үндсэн зарчмууд
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 ">
@@ -21,8 +21,8 @@ export const OurValues = () => {
                 </div>
                 <h3 className="mb-2 text-xl font-bold">Чанартай гар урлал</h3>
                 <p className="text-gray-600">
-                  We take pride in our work and are committed to delivering
-                  precision cuts and exceptional service every time.
+                  Бид ажилдаа бахархаж, хүргэхийг зорьж байна нарийн зүсэлт,
+                  онцгой үйлчилгээ.
                 </p>
               </div>
             </div>
@@ -33,8 +33,8 @@ export const OurValues = () => {
                 </div>
                 <h3 className="mb-2 text-xl font-bold">Хүрээлэн буй орчин</h3>
                 <p className="text-gray-600">
-                  We create a welcoming space where everyone feels comfortable,
-                  respected, and valued.
+                  Бид хүн бүрийг тав тухтай байлгах таатай орчинг бий болгож,
+                  хүндэтгэж, үнэлдэг.
                 </p>
               </div>
             </div>
@@ -45,8 +45,8 @@ export const OurValues = () => {
                 </div>
                 <h3 className="mb-2 text-xl font-bold">Тасралтгүй өсөлт</h3>
                 <p className="text-gray-600">
-                  We're always learning, improving our skills, and staying
-                  current with the latest trends and techniques.
+                  Бид үргэлж суралцаж, ур чадвараа дээшлүүлж, үлдэх болно
+                  хамгийн сүүлийн үеийн чиг хандлага, техник технологитой.
                 </p>
               </div>
             </div>

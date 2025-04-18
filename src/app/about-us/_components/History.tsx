@@ -9,23 +9,24 @@ export const History = () => {
           <div>
             <h2 className="mb-4 text-3xl font-bold">Salon аялал</h2>
             <p className="mb-6 text-gray-600">
-              Founded in 2010 by master barber James Wilson, StyleCut began as a
-              small, one-chair operation with a simple mission: to provide
-              exceptional grooming services in a welcoming environment where
-              everyone feels valued.
+              Мастер үсчин Жеймс Вилсон 2010 онд үүсгэн байгуулсан StyleCut нь
+              жижиг, нэг сандалтай үйл ажиллагаа явуулж эхэлсэн бөгөөд энгийн
+              зорилго нь хүн бүрийг үнэ цэнэтэй гэж үздэг тав тухтай орчинд үс
+              засалт хийх онцгой үйлчилгээ үзүүлэх явдал юм.
             </p>
             <p className="mb-6 text-gray-600">
-              Over the years, we've grown into a full-service barbershop with a
-              team of skilled professionals, but our core values remain
-              unchanged. We believe that a great haircut is more than just a
-              service—it's an experience that boosts confidence and helps you
-              put your best self forward.{" "}
+              Олон жилийн туршид бид чадварлаг мэргэжилтнүүдийн багтай, иж бүрэн
+              үйлчилгээтэй үсчин гоо сайхны газар болтлоо өссөн ч бидний үндсэн
+              үнэт зүйлс өөрчлөгдөөгүй хэвээр байна. Гайхалтай үс засалт нь
+              зөвхөн үйлчилгээ биш, өөртөө итгэх итгэлийг нэмэгдүүлж, өөрийгөө
+              хамгийн сайнаар харуулахад тань туслах туршлага гэдэгт бид
+              итгэдэг.
             </p>
             <p className="text-gray-600 ">
-              Today, StyleCut is proud to be a cornerstone of the community,
-              serving clients of all ages and backgrounds with the same
-              dedication to quality and service that has defined us from day
-              one.
+              Өнөөдөр Salon нь бүх нас, гарал үүсэлтэй үйлчлүүлэгчдэдээ
+              анхнаасаа л биднийг тодорхойлсон чанар, үйлчилгээний төлөө
+              үнэнчээр үйлчилж, олон нийтийн тулгын чулуу болсондоо бахархаж
+              байна.
             </p>
           </div>
           <div className="relative h-[400px] overflow-hidden rounded-lg">

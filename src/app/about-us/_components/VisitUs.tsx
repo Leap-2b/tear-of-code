@@ -32,7 +32,7 @@ export const VisitUs = () => {
                 <div>
                   <h3 className="font-bold">Байршил</h3>
                   <p className="text-gray-600">
-                    123 Main Street, Anytown, USA 12345
+                    123 Төв гудамж, Anytown, АНУ 12345
                   </p>
                 </div>
               </div>

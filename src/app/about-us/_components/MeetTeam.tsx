@@ -30,11 +30,11 @@ export const MeetTeam = () => {
             <div className="p-4 ">
               <h3 className="mb-1 text-xl font-bold">John Smith</h3>
               <p className="mb-2 text-sm text-gray-500">
-                Master Barber & Founder
+                Мастер үсчин, үүсгэн байгуулагч
               </p>
               <p className="text-sm text-gray-600 ">
-                With over 15 years of experience, John specializes in classic
-                cuts and precision fades.
+                15 гаруй жилийн туршлагатай Жон сонгодог чиглэлээр мэргэшсэн
+                зүсэлт болон нарийвчлал нь бүдгэрдэг.
               </p>
             </div>
           </div>
@@ -52,10 +52,10 @@ export const MeetTeam = () => {
             </div>
             <div className="p-4 ">
               <h3 className="mb-1 text-xl font-bold">Sarah Johnson</h3>
-              <p className="mb-2 text-sm text-gray-500">Senior Stylist</p>
+              <p className="mb-2 text-sm text-gray-500">Ахлах стилист</p>
               <p className="text-sm text-gray-600 ">
-                Sarah brings creativity and precision to every cut, specializing
-                in modern styles and color treatments.
+                Сара мэргэшсэн зүсэлт бүрт бүтээлч байдал, нарийвчлалыг авчирдаг
+                орчин үеийн хэв маяг, өнгөт эмчилгээ.
               </p>
             </div>
           </div>

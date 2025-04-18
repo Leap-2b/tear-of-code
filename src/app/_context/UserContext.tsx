@@ -30,6 +30,7 @@ const UserContext = createContext<UserContextType>(defaultContext);
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const { push } = useRouter();
+  const router = useRouter();
   const [user, setUser] = useState<any | null>(null);
   const [isReady, setIsReady] = useState(false);
   const pathname = usePathname();
@@ -68,6 +69,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const logout = () => {
+    router.push("/auth");
     localStorage.removeItem("id");
     setUser(null);
   };
@@ -80,9 +82,9 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
         if (!parsedId) return;
 
-        const { data } = await axios.get(`/api/signin/${parsedId}`);
+        const { data } = await axios.get(`/api/signin/${accessid}`);
         console.log("user", data);
-        setUser(data.data);
+        setUser(data.user);
         navigateToPath("/");
       } catch (error) {
         localStorage.removeItem("id");

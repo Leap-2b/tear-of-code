@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     const createdStaff = await ServiceModel.create(staff);
 
     return NextResponse.json(
-      { message: "Service successfully added", createdStaff },
+      { message: "Үйлчилгээ амжилттай нэмэгдлээ", createdStaff },
       { status: 201 }
     );
   } catch (error) {

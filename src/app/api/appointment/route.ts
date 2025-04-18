@@ -10,11 +10,11 @@ export async function POST(req: NextRequest) {
     const createdStaff = await AppointmentModel.create(appointment);
 
     return NextResponse.json(
-      { message: "Service successfully added appointment", createdStaff },
+      { message: "Захиалга амжилттай нэмэгдлээ", createdStaff },
       { status: 201 }
     );
   } catch (error) {
-    console.error("Error during add appointment:", error);
+    console.error("Захиалгын мэдээлэл нэмэхэд алдаа гарлаа:", error);
 
     return NextResponse.json(
       {
@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
 
     if (!userId) {
       return NextResponse.json(
-        { message: "userId is required" },
+        { message: "Хэрэглэгчийн ID шаардлагатай" },
         { status: 400 }
       );
     }
@@ -42,7 +42,7 @@ export async function GET(req: NextRequest) {
       .populate("serviceIds");
 
     return NextResponse.json(
-      { message: "Service successfully added appointment", data: appointments },
+      { message: "Амжилттай", data: appointments },
       { status: 201 }
     );
   } catch (error) {

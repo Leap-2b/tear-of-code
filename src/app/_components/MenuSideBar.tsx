@@ -2,12 +2,18 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { MenuSquare } from "lucide-react";
+import {
+  EqualApproximately,
+  LogIn,
+  MenuSquare,
+  PhoneCall,
+  ScanHeart,
+  UserCheck,
+} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -16,24 +22,46 @@ export default function MenusideBar() {
   return (
     <div>
       <Sheet>
-        <SheetTrigger className="size-5 overflow-hidden">
+        <SheetTrigger className="size-5 overflow-hidden cursor-pointer">
           <MenuSquare className="size-5" />
         </SheetTrigger>
         <SheetContent>
-          <SheetHeader>
-            <SheetTitle>Үйлчилгээ</SheetTitle>
+          <SheetHeader className=" mt-20 ml-4 flex flex-col gap-4 font-semibold text-[22px] ">
+            <SheetTitle
+              className=" cursor-pointer flex gap-2 hover:underline "
+              onClick={() => router.push("/service")}
+            >
+              <ScanHeart className="mt-1.5" />
+              Үйлчилгээ
+            </SheetTitle>
             <Link href={"/our-staff"}>
-              <SheetTitle onClick={() => router.push("/our-staff")}>
+              <SheetTitle
+                className=" cursor-pointer flex gap-2 hover:underline "
+                onClick={() => router.push("/our-staff")}
+              >
+                <UserCheck className="mt-1.5" />
                 Манай Үсчид
               </SheetTitle>
             </Link>
-            <SheetTitle onClick={() => router.push("/contect")}>
+            <SheetTitle
+              className=" cursor-pointer flex gap-2 hover:underline "
+              onClick={() => router.push("/contact")}
+            >
+              <PhoneCall />
               Холбоо барих
             </SheetTitle>
-            <SheetTitle onClick={() => router.push("/about-us")}>
+            <SheetTitle
+              className=" cursor-pointer flex gap-2 hover:underline "
+              onClick={() => router.push("/about-us")}
+            >
+              <EqualApproximately className="mt-1.5" />
               Бидний тухай
             </SheetTitle>
-            <SheetTitle onClick={() => router.push("/auth")}>
+            <SheetTitle
+              className=" cursor-pointer flex gap-2 hover:underline "
+              onClick={() => router.push("/auth")}
+            >
+              <LogIn className="mt-1.5" />
               Нэвтрэх / Бүртгүүлэх
             </SheetTitle>
           </SheetHeader>

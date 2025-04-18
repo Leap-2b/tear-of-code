@@ -4,12 +4,12 @@ import { Clock, Sparkles } from "lucide-react";
 export default function Nails() {
   return (
     <div>
-      <div className="flex  flex-col gap-3">
+      <div className="flex  flex-wrap gap-3">
         <h4 className="flex text-2xl font-bold mx-19 my-7 ">
           <Sparkles className="size-5 font-bold my-1.5" />
           Хумсны үйлчилгээ
         </h4>
-        <div className="border-1 rounded-2xl p-4 w-full gap-5">
+        <div className="border-1 rounded-2xl p-4 w-full sm:w-[calc(50%-14px)]">
           <div className="font-bold">
             Үндсэн будалтууд
             <p className="text-[12px] text-[#6c727f]">
@@ -26,7 +26,7 @@ export default function Nails() {
             <Button className="w-full mt-4">Захиалга хийх</Button>
           </div>
         </div>
-        <div className="border-1 rounded-2xl p-4 w-full gap-5">
+        <div className="border-1 rounded-2xl p-4 w-full gap-5 sm:w-[calc(50%-14px)]">
           <div className="font-bold">
             Үндсэн педикюр
             <p className="text-[12px] text-[#6c727f]">
@@ -43,7 +43,7 @@ export default function Nails() {
             <Button className="w-full mt-4">Захиалга хийх</Button>
           </div>
         </div>
-        <div className="border-1 rounded-2xl p-4 w-full gap-5">
+        <div className="border-1 rounded-2xl p-4 w-full gap-5 sm:w-[calc(50%-14px)]">
           <div className="font-bold">
             Тансаг будалт & Загварлаг
             <p className="text-[12px] text-[#6c727f]">

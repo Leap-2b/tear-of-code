@@ -13,7 +13,7 @@ export function Header() {
         <Button
           variant={"outline"}
           className="size-5 border-none "
-          onClick={() => router.push("login")}
+          onClick={() => router.push("/auth")}
         >
           <UserCircle className="size-5" />
         </Button>

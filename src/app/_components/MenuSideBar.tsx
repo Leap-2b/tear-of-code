@@ -9,8 +9,10 @@ import {
 } from "@/components/ui/sheet";
 import { MenuSquare } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function MenusideBar() {
+  const router = useRouter();
   return (
     <div>
       <Sheet>
@@ -19,11 +21,16 @@ export default function MenusideBar() {
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle>Service</SheetTitle>
+            <SheetTitle>Үйлчилгээ</SheetTitle>
             <Link href={"/our-staff"}>
-              <SheetTitle>Our Barbers</SheetTitle>
+              <SheetTitle>Манай Үсчид</SheetTitle>
             </Link>
-            <SheetTitle>Login /Register</SheetTitle>
+            <SheetTitle onClick={() => router.push("/auth")}>
+              Нэвтрэх / Бүртгүүлэх
+            </SheetTitle>
+            <SheetTitle onClick={() => router.push("/contect")}>
+              Холбоо барих
+            </SheetTitle>
           </SheetHeader>
         </SheetContent>
       </Sheet>

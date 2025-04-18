@@ -4,8 +4,10 @@ import { UserCircle } from "lucide-react";
 import MenusideBar from "./MenuSideBar";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useUser } from "../_context/UserContext";
 
 export function Header() {
+  const { logout } = useUser();
   const router = useRouter();
   return (
     <div className="w-[100%]  flex  justify-between h-[60px] bg-[#FFFFFF] px-4 py-4 border-1">
@@ -21,7 +23,7 @@ export function Header() {
         <Button
           variant={"outline"}
           className="size-5 border-none cursor-pointer "
-          onClick={() => router.push("/auth")}
+          onClick={() => logout()}
         >
           <UserCircle className="size-5" />
         </Button>

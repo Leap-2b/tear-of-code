@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { EyeClosed, Eye } from "lucide-react";
 import { useState } from "react";
+import { useUser } from "@/app/_context/UserContext";
 
 const formSchema = z.object({
   password: z.string().min(6, {
@@ -22,6 +23,7 @@ const formSchema = z.object({
   email: z.string(),
 });
 export function ProfileForm() {
+  const { login } = useUser();
   const [showpassword, nowshowpassword] = useState(true);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -33,6 +35,7 @@ export function ProfileForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    login(values.email, values.password);
   }
 
   return (

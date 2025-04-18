@@ -12,6 +12,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useUser } from "@/app/_context/UserContext";
 const formSchema = z.object({
   username: z.string().min(3, {
     message: "Хэрэглэгчийн нэр дор хаяж 3 тэмдэгттэй байх ёстой.",
@@ -19,22 +20,22 @@ const formSchema = z.object({
   password: z.string().min(6, {
     message: "Нууц үг дор хаяж 6 тэмдэгттэй байх ёстой.",
   }),
-  confirmpassword: z.string(),
   email: z.string(),
 });
 
 export function RegisterSign() {
+  const { createUser } = useUser();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
       password: "",
-      confirmpassword: "",
       username: "",
     },
   });
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values); // ✅ Validated and type-safe
+    createUser(values);
   }
 
   return (
@@ -94,25 +95,6 @@ export function RegisterSign() {
                     type="password"
                     {...field}
                     className="w-full h-[40px] text-[16px] font-normal rounded-full focus-visible:ring-transparent border-none shadow-none order-none "
-                  />
-                </div>
-              </FormControl>
-              <FormMessage /> {/* Error will show here if invalid */}
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="confirmpassword"
-          render={({ field }) => (
-            <FormItem className="w-full ">
-              <FormLabel>Нууц үгээ баталгаажуулна уу</FormLabel>
-              <FormControl>
-                <div className="w-full h-[40px] py-5 px-1 text-[16px] font-normal rounded-[5px] flex justify-center items-center m-auto border-1 bg-[#fff]">
-                  <Input
-                    type="password"
-                    {...field}
-                    className="w-full h-[40px] text-[16px] font-normal focus-visible:ring-transparent border-none  shadow-none order-none"
                   />
                 </div>
               </FormControl>

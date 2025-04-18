@@ -23,7 +23,9 @@ export default function MenusideBar() {
           <SheetHeader>
             <SheetTitle>Үйлчилгээ</SheetTitle>
             <Link href={"/our-staff"}>
-              <SheetTitle>Манай Үсчид</SheetTitle>
+              <SheetTitle onClick={() => router.push("/our-staff")}>
+                Манай Үсчид
+              </SheetTitle>
             </Link>
             <SheetTitle onClick={() => router.push("/contect")}>
               Холбоо барих

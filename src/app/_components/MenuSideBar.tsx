@@ -25,11 +25,14 @@ export default function MenusideBar() {
             <Link href={"/our-staff"}>
               <SheetTitle>Манай Үсчид</SheetTitle>
             </Link>
-            <SheetTitle onClick={() => router.push("/auth")}>
-              Нэвтрэх / Бүртгүүлэх
-            </SheetTitle>
             <SheetTitle onClick={() => router.push("/contect")}>
               Холбоо барих
+            </SheetTitle>
+            <SheetTitle onClick={() => router.push("/about-us")}>
+              Бидний тухай
+            </SheetTitle>
+            <SheetTitle onClick={() => router.push("/auth")}>
+              Нэвтрэх / Бүртгүүлэх
             </SheetTitle>
           </SheetHeader>
         </SheetContent>

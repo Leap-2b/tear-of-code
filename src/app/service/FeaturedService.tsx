@@ -1,3 +1,3 @@
 export default function FeaturedService() {
-  return <div>Helooo</div>;
+  return <div>Hello</div>;
 }

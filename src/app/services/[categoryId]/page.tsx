@@ -17,6 +17,8 @@ const ServicesPage = () => {
     try {
       const res = await axios.get("/api/service");
 
+      console.log("res", res);
+
       if (res.data.data) {
         setAllService(res.data.data);
       }

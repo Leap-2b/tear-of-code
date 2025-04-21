@@ -1,11 +1,17 @@
 import Nails from "./Nails";
 import HairCut from "./HairCut";
+import { ServiceType } from "@/server/utils";
 
-export default function All() {
+interface AllProps {
+  service: ServiceType[] | null;
+}
+
+export default function All({ service }: AllProps) {
+  if (!service) return <div>Түр хүлээнэ үү...</div>;
   return (
     <div>
-      <HairCut />
-      <Nails />
+      <HairCut service={service} />
+      <Nails service={service} />
     </div>
   );
 }

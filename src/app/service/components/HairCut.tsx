@@ -1,7 +1,13 @@
 import { Button } from "@/components/ui/button";
+import { ServiceType } from "@/server/utils";
 import { Clock, Scissors } from "lucide-react";
 
-export default function () {
+interface HairCutProps {
+  service: ServiceType[] | null;
+}
+
+export default function HairCut({ service }: HairCutProps) {
+  if (!service) return <div>Түр хүлээнэ үү...</div>;
   return (
     <div>
       <div className="flex flex-wrap gap-3">

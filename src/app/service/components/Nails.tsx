@@ -1,7 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Clock, Sparkles } from "lucide-react";
+import { ServiceType } from "@/server/utils";
 
-export default function Nails() {
+interface NailProps {
+  service: ServiceType[] | null;
+}
+
+export default function Nails({ service }: NailProps) {
+  if (!service) return <div>Түр хүлээнэ үү...</div>;
   return (
     <div>
       <div className="flex  flex-wrap gap-3">

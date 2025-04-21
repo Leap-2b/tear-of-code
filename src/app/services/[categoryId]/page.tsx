@@ -53,7 +53,7 @@ const ServicesPage = () => {
       <p className="text-[16px] text-gray-500 ">
         Professional haircuts for all styles and preferences
       </p>
-      <div className="grid grid-cols-1 gap-6 mt-8 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 ">
         {allService?.map((service, index) => {
           if (service.category._id.toString() !== categoryId) {
             return null;

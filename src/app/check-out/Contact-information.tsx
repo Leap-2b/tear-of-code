@@ -21,6 +21,9 @@ export default function Page() {
     email: "",
     phone: "",
   });
+  const isFormComplete = () => {
+    return formData.username.trim() !== "" && formData.email.trim() !== "" && formData.phone.trim() !== ""
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -72,6 +75,16 @@ export default function Page() {
           </div>
         </CardContent>
       </Card>
+      {!isFormComplete() ? (
+        <div className="w-full mx-auto bg-white rounded-lg overflow-hidden shadow-md flex flex-col mt-4 py-6" id="1">
+          <h1 className="font-bold text-xl ml-4">Payment method</h1>
+          <p className="flex justify-center items-center">
+            Please fill out all contact information fields to proceed to payment
+          </p>
+        </div>
+      ) : (
+        <Payment />
+      )}
     </main>
   );
 }

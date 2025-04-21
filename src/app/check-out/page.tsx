@@ -13,7 +13,7 @@ export default function CheckOut() {
       </p>
 
       <ContactInformation />
-      <Payment />
+      
       <Button className="w-full">
         <CreditCard />
         Complete Booking

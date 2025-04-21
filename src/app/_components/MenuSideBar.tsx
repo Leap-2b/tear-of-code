@@ -22,8 +22,8 @@ export default function MenusideBar() {
   return (
     <div>
       <Sheet>
-        <SheetTrigger className="size-5 overflow-hidden cursor-pointer">
-          <MenuSquare className="size-5" />
+        <SheetTrigger className="h-full size-5 flex items-center my-auto overflow-hidden cursor-pointer ">
+          <MenuSquare className="size-5"/>
         </SheetTrigger>
         <SheetContent>
           <SheetHeader className=" mt-20 ml-4 flex flex-col gap-4 font-semibold text-[22px] ">

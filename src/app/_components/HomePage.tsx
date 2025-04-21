@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -5,11 +7,34 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { CategoryType } from "@/server/utils";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 export const HomePage = () => {
+  const [categories, setCategories] = useState<CategoryType[] | null>(null);
+  const router = useRouter();
+
+  const getCategories = async () => {
+    try {
+      const res = await axios.get("/api/category");
+
+      if (res.data.allCategory) {
+        setCategories(res.data.allCategory);
+      }
+    } catch (error) {
+      console.log("error", error);
+      alert("error in get categories");
+    }
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
   return (
     <div className="w-full h-full  overflow-scroll flex flex-col gap-[30px] bg-[#ffffff]  ">
       <div className="w-full px-4 flex flex-col gap-[30px] ">
@@ -34,40 +59,29 @@ export const HomePage = () => {
           <h3 className="text-[36px] font-[700] ">Манай үйлчилгээ</h3>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 ">
-            <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden transition-all hover:shadow-lg ">
-              <Image
-                alt=""
-                src={
-                  "https://menshaircuts.com/wp-content/uploads/2024/06/tp-best-haircuts-for-men.jpg"
-                }
-                height={500}
-                width={500}
-                className="aspect-video w-full overflow-hidden"
-              />
-              <div className="p-4">
-                <h4 className="text-[16px] font-[700] ">Үс засах</h4>
-                <p className="text-[14px] font-[500] text-[#6C727F] ">
-                  Бүх загварт тохирсон мэргэжлийн үс засалт
-                </p>
-              </div>
-            </div>
-            <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden transition-all hover:shadow-lg ">
-              <Image
-                alt=""
-                src={
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9RW5pVVJGFs3n5coTE2LTOgvrTxoBQd52LQ&s"
-                }
-                height={500}
-                width={500}
-                className="aspect-video w-full overflow-hidden"
-              />
-              <div className="p-4 ">
-                <h4 className="text-[16px] font-[700] ">Хумсны үйлчилгээ</h4>
-                <p className="text-[14px] font-[500] text-[#6C727F] ">
-                  маникюр, педикюр
-                </p>
-              </div>
-            </div>
+            {categories?.map((category, index) => {
+              return (
+                <div
+                  key={index}
+                  onClick={() => router.push(`/services/${category._id}`)}
+                  className="rounded-lg border cursor-pointer bg-card text-card-foreground shadow-sm overflow-hidden transition-all hover:shadow-lg "
+                >
+                  <Image
+                    alt=""
+                    src={category.image}
+                    height={500}
+                    width={500}
+                    className="aspect-video w-full overflow-hidden"
+                  />
+                  <div className="p-4">
+                    <h4 className="text-[16px] font-[700] ">{category.name}</h4>
+                    <p className="text-[14px] font-[500] text-[#6C727F] ">
+                      Бүх загварт тохирсон мэргэжлийн үс засалт
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

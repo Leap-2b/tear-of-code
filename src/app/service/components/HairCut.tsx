@@ -39,7 +39,7 @@ export default function HairCut({ service, category }: HairCutProps) {
             </div>
           ))
         ) : (
-          <div>Үсний үйлчилгээ олдсонгүй.</div>
+          <div>Үсниййлчилгээ олдсонгүй.</div>
         )}
       </div>
     </div>

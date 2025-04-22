@@ -13,10 +13,10 @@ export default function CheckOut() {
       </p>
 
       <ContactInformation />
-      
+
       <Button className="w-full">
         <CreditCard />
-        Complete Booking
+        Захиалах
       </Button>
       <BookingSummary />
     </div>

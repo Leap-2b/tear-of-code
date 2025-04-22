@@ -10,7 +10,7 @@ import { OurStory } from "./_components/OurStory";
 
 const AboutUsPage = () => {
   return (
-    <div className="w-full h-full bg-[#ff ffff] ">
+    <div className="w-full h-full bg-[#ffffff] ">
       <OurStory />
 
       <History />

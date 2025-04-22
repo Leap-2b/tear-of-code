@@ -6,15 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Payment from "./Payment";
 
-// export default function ContactInformation() {
-//   return (
-//     <div className=" flex m-auto w-[300px] mt-8 gap-4">
-//       <UserCircle />
-//       <p>/username/</p>
-//     </div>
-//   );
-// }
-
 export default function Page() {
   const [formData, setFormData] = useState({
     username: "",
@@ -42,7 +33,7 @@ export default function Page() {
       <Card className="w-full mx-auto">
         <CardHeader>
           <CardTitle className="text-2xl font-bold">
-            Contact Information
+            Захиалгын мэлээлэл
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -84,9 +75,9 @@ export default function Page() {
           className="w-full mx-auto bg-white rounded-lg overflow-hidden shadow-md flex flex-col mt-4 py-6"
           id="1"
         >
-          <h1 className="font-bold text-xl ml-4">Payment method</h1>
+          <h1 className="font-bold text-xl ml-4">Төлбөрийн хэсэг</h1>
           <p className="flex justify-center items-center">
-            Please fill out all contact information fields to proceed to payment
+            Мэдээллээ бүрэн оруулснаар төлбөр өө төлөх боломжтой
           </p>
         </div>
       ) : (

@@ -1,15 +1,15 @@
 "use client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AskedQuest from "./components/AskedQuest";
-import Nails from "./components/Nails";
+// import Nails from "./components/Nails";
 import HairCut from "./components/HairCut";
-import All from "./components/All";
 import { useEffect, useState } from "react";
-import { ServiceType } from "@/server/utils";
+import { CategoryType, ServiceType } from "@/server/utils";
 import axios from "axios";
 
 export default function Service() {
   const [service, setService] = useState<ServiceType[] | null>(null);
+  const [categories, setCategories] = useState<CategoryType[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
@@ -26,6 +26,17 @@ export default function Service() {
         setLoading(false);
       }
     };
+
+    const getAllCategories = async () => {
+      try {
+        const { data } = await axios.get("/api/category");
+        console.log("Category", data);
+        setCategories(data.allCategory);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllCategories();
     getAllService();
   }, []);
   return (
@@ -33,20 +44,37 @@ export default function Service() {
       <Tabs defaultValue="all">
         <TabsList className="px-4 py-1 bg-blue-50 w-full">
           <TabsTrigger value="all">Бүх үйлчилгээ</TabsTrigger>
-          <TabsTrigger value="haircuts">Үсний засалтууд</TabsTrigger>
-          <TabsTrigger value="nails">Хумсны будалт </TabsTrigger>
+          {categories?.map((category) => {
+            return (
+              <TabsTrigger key={category._id} value={category._id}>
+                {category.name}
+              </TabsTrigger>
+            );
+          })}
         </TabsList>
         <TabsContent value="all">
-          <All service={service} />
+          {categories?.map((category) => {
+            return (
+              <HairCut
+                key={category._id}
+                service={service}
+                category={category}
+              />
+            );
+          })}
         </TabsContent>
 
-        <TabsContent value="haircuts">
-          <HairCut service={service} />
-        </TabsContent>
+        {categories?.map((category) => {
+          return (
+            <TabsContent key={category._id} value={category._id}>
+              <HairCut service={service} category={category} />
+            </TabsContent>
+          );
+        })}
 
-        <TabsContent value="nails">
+        {/* <TabsContent value="nails">
           <Nails service={service} />
-        </TabsContent>
+        </TabsContent> */}
       </Tabs>
       <AskedQuest />
     </div>

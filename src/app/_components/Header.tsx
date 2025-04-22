@@ -29,7 +29,7 @@ export function Header() {
           </>
         ) : (
           <>
-            <Link href={"@/auth"}>
+            <Link href={"/auth"}>
               <Button
                 variant={"outline"}
                 className="size-5 border-none cursor-pointer flex items-center "

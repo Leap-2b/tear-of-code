@@ -5,6 +5,7 @@ import { Header } from "./_components/Header";
 import { StaffProvider } from "./_context/StaffContext";
 import { Toaster } from "sonner";
 import { UserProvider } from "./_context/UserContext";
+import AppointmentsProvider from "./_context/Appointment";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,12 +34,14 @@ export default function RootLayout({
       >
         <div className="max-w-[768px] m-auto min-h-screen">
           <Toaster />
-          <UserProvider>
-            <StaffProvider>
-              <Header />
-              {children}
-            </StaffProvider>
-          </UserProvider>
+          <AppointmentsProvider>
+            <UserProvider>
+              <StaffProvider>
+                <Header />
+                {children}
+              </StaffProvider>
+            </UserProvider>
+          </AppointmentsProvider>
         </div>
       </body>
     </html>

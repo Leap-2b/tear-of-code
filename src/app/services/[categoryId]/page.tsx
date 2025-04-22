@@ -17,13 +17,9 @@ const ServicesPage = () => {
 
   const [allService, setAllService] = useState<ServiceType[] | null>(null);
 
-  console.log("allService ", allService);
-
   const getAllService = async () => {
     try {
       const res = await axios.get("/api/service");
-
-      console.log("res", res);
 
       if (res.data.data) {
         setAllService(res.data.data);
@@ -41,6 +37,8 @@ const ServicesPage = () => {
   const matchedServices = allService?.filter(
     (service) => service.category._id.toString() === categoryId
   );
+
+  console.log("matchedServices", matchedServices);
 
   const matchedCategoryName = matchedServices?.[0]?.category?.name;
 
@@ -66,7 +64,9 @@ const ServicesPage = () => {
               <div className="aspect-video w-full overflow-hidden ">
                 <Image
                   alt=""
-                  src={""}
+                  src={
+                    "https://blog.goldsupplier.com/wp-content/uploads/2024/10/second-row-crochet-2024-10-25T154110.321.png"
+                  }
                   className="h-full w-full object-cover "
                   height={500}
                   width={500}
@@ -87,8 +87,10 @@ const ServicesPage = () => {
                 </div>
               </div>
               <div className=" p-4 pt-0 w-full ">
-                <Link href={""}>
-                  <Button className="w-full ">Үйлчилгээгээ сонгоно уу</Button>
+                <Link href={`/staffs/${service._id}`}>
+                  <Button className="w-full cursor-pointer ">
+                    Үйлчилгээгээ сонгоно уу
+                  </Button>
                 </Link>
               </div>
             </div>

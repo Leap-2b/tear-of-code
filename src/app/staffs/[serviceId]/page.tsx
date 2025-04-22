@@ -50,7 +50,7 @@ const ServiceStaffs = () => {
   const handleClick = (id: string) => {
     setServiceStaffId(id);
     setServiceId(serviceId ?? "");
-    router.push(`/check-out/${id}`);
+    router.push(`/booking/`);
   };
 
   return (

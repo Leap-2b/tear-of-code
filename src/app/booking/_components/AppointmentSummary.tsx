@@ -79,7 +79,7 @@ const AppointmentSummary = () => {
         </div>
 
         <Link href={"/checkout"}>
-          <button className="w-full py-3 px-4 cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-200 flex items-center justify-center gap-3 ">
+          <button className="w-full py-3 px-4 cursor-pointer bg-black hover:bg-black text-white font-medium rounded-lg transition duration-200 flex items-center justify-center gap-3 ">
             Proceed to Checkout <ArrowRight className="size-5 " />
           </button>
         </Link>

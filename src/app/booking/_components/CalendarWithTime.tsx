@@ -105,7 +105,7 @@ const CalendarWithTime = () => {
               key={day.toISOString()}
               className={`p-2 rounded-full cursor-pointer text-sm ${
                 day.getDate() === selectedDate?.getDate()
-                  ? "bg-blue-600 text-white"
+                  ? "bg-black text-white"
                   : day.getMonth() !== currentDate.getMonth()
                   ? "text-gray-400"
                   : "hover:bg-gray-100"
@@ -129,7 +129,7 @@ const CalendarWithTime = () => {
               key={time}
               className={`py-2 px-3 rounded-lg cursor-pointer border text-sm ${
                 selectedTime === time
-                  ? "bg-blue-600 text-white border-blue-600"
+                  ? "bg-black text-white border-black"
                   : "border-gray-300 hover:bg-gray-50"
               }`}
               onClick={() => setSelectedTime(time)}

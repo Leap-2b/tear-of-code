@@ -39,7 +39,6 @@ export default function ProfileSideBar() {
             <Heart className="mt-1.5" />
             Таалагдсан
           </SheetTitle>
-
           <SheetTitle className=" cursor-pointer flex gap-2 hover:underline ">
             <LogOut className="mt-1.5" />
             Хэрэглэгчээс гарах

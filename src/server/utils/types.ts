@@ -27,7 +27,7 @@ export interface StaffType {
   image: string;
   category: CategoryType;
   profession: ProfessionEnum;
-  services: ServiceType;
+  services: ServiceType[];
   availableTimes: Date[];
   createdAt: Date;
   updatedAt: Date;

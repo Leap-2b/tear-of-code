@@ -85,7 +85,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         const { data } = await axios.get(`/api/signin/${accessid}`);
         console.log("user", data);
         setUser(data.user);
-        navigateToPath("/");
+        // navigateToPath("/");
       } catch (error) {
         localStorage.removeItem("id");
         toast.error("Your session has expired. Please login again.");

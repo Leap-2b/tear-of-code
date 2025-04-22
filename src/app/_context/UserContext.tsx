@@ -96,15 +96,15 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     loadUser();
   }, []);
 
-  useEffect(() => {
-    const AUTH_PATHS = ["/auth"];
+  // useEffect(() => {
+  //   const AUTH_PATHS = ["/auth"];
 
-    if (AUTH_PATHS.includes(pathname)) return;
+  //   if (AUTH_PATHS.includes(pathname)) return;
 
-    if (!isReady) return;
+  //   if (!isReady) return;
 
-    if (!user) navigateToPath("/auth");
-  }, [pathname, user, isReady]);
+  //   if (!user) navigateToPath("/auth");
+  // }, [pathname, user, isReady]);
 
   if (!isReady)
     return (

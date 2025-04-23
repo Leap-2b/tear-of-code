@@ -10,8 +10,9 @@ import { setLocal } from "../utils/handle-local";
 import { Loader } from "../(auth)/auth/_compoments/Loader";
 
 type UserContextType = {
-  user?: UserType | null;
+  user?: any;
   login: (email: string, password: string) => Promise<void>;
+
   createUser: (user: UserType) => Promise<void>;
   logout: () => void;
 };
@@ -19,6 +20,7 @@ type UserContextType = {
 const defaultContext: UserContextType = {
   user: null,
   logout: () => {},
+
   createUser: async () => {
     throw new Error("Auth context not initialized");
   },

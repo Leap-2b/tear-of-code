@@ -1,10 +1,9 @@
-import Payment from "./_components/Payment";
-import BookingSummary from "./_components/BookingSummary";
-import ContactInformation from "./_components/Contact-information";
 import { Button } from "@/components/ui/button";
+import UserInformation from "./_components/User-information";
 import { CreditCard } from "lucide-react";
+import SummaryLoged from "./_components/SummaryLoged";
 
-export default function CheckOut() {
+export default function LogedCheckout() {
   return (
     <div className="w-full flex flex-col items-center gap-4  p-6">
       <h1 className="font-bold text-xl w-full mt-6">Checkout</h1>
@@ -12,13 +11,13 @@ export default function CheckOut() {
         Complete your booking by providing payment details
       </p>
 
-      <ContactInformation />
+      <UserInformation />
 
       <Button className="w-full">
         <CreditCard />
         Захиалах
       </Button>
-      <BookingSummary />
+      <SummaryLoged />
     </div>
   );
 }

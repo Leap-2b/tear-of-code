@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { CategoryType, ServiceType } from "@/server/utils";
 import { Clock } from "lucide-react";
+import Link from "next/link";
 
 interface HairCutProps {
   service: ServiceType[] | null;
@@ -34,12 +35,16 @@ export default function SalonService({ service, category }: HairCutProps) {
                   </p>
                   <p className="font-bold">{item.price}₮</p>
                 </div>
-                <Button className="w-full mt-4">Захиалга хийх</Button>
+                <Link href={`/staffs/${item._id}`}>
+                  <Button className="w-full mt-4 cursor-pointer">
+                    Захиалга хийх
+                  </Button>
+                </Link>
               </div>
             </div>
           ))
         ) : (
-          <div>Үсниййлчилгээ олдсонгүй.</div>
+          <div>Үйлчилгээ олдсонгүй.</div>
         )}
       </div>
     </div>

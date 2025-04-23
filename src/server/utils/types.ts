@@ -6,11 +6,13 @@ import {
 } from "../constant";
 
 export interface UserType {
-  _id?: Schema.Types.ObjectId;
+  _id: Schema.Types.ObjectId;
   email: string;
   password: string;
   phoneNumber?: string;
   username?: string;
+  favoriteStaff?: Schema.Types.ObjectId[];
+  favoriteServices?: Schema.Types.ObjectId[];
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -27,7 +29,7 @@ export interface StaffType {
   image: string;
   category: CategoryType;
   profession: ProfessionEnum;
-  services: Schema.Types.ObjectId[];
+  services: ServiceType;
   availableTimes: Date[];
   createdAt: Date;
   updatedAt: Date;
@@ -40,8 +42,12 @@ export interface AppointmentType {
   date: Date;
   status: AppointmentStatusEnum;
   paid: boolean;
+  paymentMethod: string;
   serviceIds: ServiceType;
   price: number;
+  username?: string;
+  email?: string;
+  phone?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -61,12 +67,16 @@ export interface ServiceType {
   category: CategoryType;
   duration: number; // minutes
   description: string;
+  image: string;
   createdAt: Date;
   updatedAt: Date;
 }
 
 export interface CategoryType {
-  _id: string;
+  _id: Schema.Types.ObjectId;
   name: string;
   image: string;
+  description: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

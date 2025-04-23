@@ -52,7 +52,7 @@ const ServicesPage = () => {
         Professional haircuts for all styles and preferences
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 ">
-        {allService?.map((service, index) => {
+        {allService?.map((service: ServiceType, index) => {
           if (service.category._id.toString() !== categoryId) {
             return null;
           }
@@ -64,9 +64,7 @@ const ServicesPage = () => {
               <div className="aspect-video w-full overflow-hidden ">
                 <Image
                   alt=""
-                  src={
-                    "https://blog.goldsupplier.com/wp-content/uploads/2024/10/second-row-crochet-2024-10-25T154110.321.png"
-                  }
+                  src={service?.image}
                   className="h-full w-full object-cover "
                   height={500}
                   width={500}
@@ -74,7 +72,7 @@ const ServicesPage = () => {
               </div>
               <div className="p-4 ">
                 <h3 className="mb-1 text-xl font-bold">{service.name}</h3>
-                <p className="mb-4 text-sm text-gray-500">
+                <p className="mb-4 text-sm text-gray-500 line-clamp-3 min-h-[4.5em]">
                   {service.description}
                 </p>
                 <div className="flex items-center justify-between ">

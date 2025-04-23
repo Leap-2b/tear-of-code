@@ -2,10 +2,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AskedQuest from "./_components/AskedQuest";
 import { useEffect, useState } from "react";
-import { CategoryType, ServiceType } from "@/server/utils";
+
 import axios from "axios";
 import SalonService from "./_components/Service";
 import { Loader } from "../(auth)/auth/_compoments/Loader";
+import { CategoryType, ServiceType } from "../utils/types";
 
 export default function Service() {
   const [service, setService] = useState<ServiceType[] | null>(null);
@@ -51,11 +52,11 @@ export default function Service() {
           <TabsTrigger value="all" className=" cursor-pointer ">
             Бүх үйлчилгээ
           </TabsTrigger>
-          {categories?.map((category) => {
+          {categories?.map((category, index) => {
             return (
               <TabsTrigger
                 className=" cursor-pointer "
-                key={category._id}
+                key={index}
                 value={category._id}
               >
                 {category.name}
@@ -64,7 +65,7 @@ export default function Service() {
           })}
         </TabsList>
         <TabsContent value="all">
-          {categories?.map((category) => {
+          {categories?.map((category: CategoryType) => {
             return (
               <SalonService
                 key={category._id}

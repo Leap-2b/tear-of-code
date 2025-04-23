@@ -1,5 +1,5 @@
+import { CategoryType, ServiceType } from "@/app/utils/types";
 import { Button } from "@/components/ui/button";
-import { CategoryType, ServiceType } from "@/server/utils";
 import { Clock } from "lucide-react";
 import Link from "next/link";
 

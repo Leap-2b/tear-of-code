@@ -7,6 +7,8 @@ const UserSchema: Schema = new Schema<UserType>(
     password: { type: String, required: true, select: false },
     phoneNumber: { type: String },
     username: { type: String, required: true },
+    favoriteStaff: { type: [Schema.Types.ObjectId], ref: "Staff" },
+    favoriteServices: { type: [Schema.Types.ObjectId], ref: "Services" },
   },
   { timestamps: true }
 );

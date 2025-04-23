@@ -12,6 +12,7 @@ const ServiceSchema: Schema = new Schema<ServiceType>(
     },
     duration: { type: Number, required: true },
     description: { type: String, required: true },
+    image: { type: String, required: true },
   },
   { timestamps: true }
 );

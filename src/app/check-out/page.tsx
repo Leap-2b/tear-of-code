@@ -1,4 +1,3 @@
-import Payment from "./Payment";
 import BookingSummary from "./BookingSummary";
 import ContactInformation from "./Contact-information";
 import { Button } from "@/components/ui/button";

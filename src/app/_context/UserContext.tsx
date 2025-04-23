@@ -10,7 +10,7 @@ import { setLocal } from "../utils/handle-local";
 import { Loader } from "../(auth)/auth/_compoments/Loader";
 
 type UserContextType = {
-  user?: any;
+  user?: UserType | null | undefined;
   login: (email: string, password: string) => Promise<void>;
 
   createUser: (user: UserType) => Promise<void>;

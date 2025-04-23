@@ -1,12 +1,10 @@
 "use client";
-
 import { useAppointment } from "@/app/_context/Appointment";
 import { Button } from "@/components/ui/button";
 import { ServiceType, StaffType } from "@/server/utils";
 import axios from "axios";
 import { Star } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -86,13 +84,18 @@ const ServiceStaffs = () => {
                 <div className="mt-3">
                   <p className="text-xs font-medium text-gray-500">МЭРГЭЖИЛ</p>
                   <div className="mt-1 flex flex-wrap gap-2 items-center">
-                    {staff.services.map((service: ServiceType) => {
-                      return (
-                        <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-[500] ">
-                          {service.name}
-                        </span>
-                      );
-                    })}
+                    {staff.services.map(
+                      (service: ServiceType, index: number) => {
+                        return (
+                          <span
+                            key={index}
+                            className="rounded-full bg-gray-100 px-2 py-1 text-xs font-[500] "
+                          >
+                            {service.name}
+                          </span>
+                        );
+                      }
+                    )}
                   </div>
                 </div>
               </div>

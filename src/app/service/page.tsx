@@ -18,7 +18,7 @@ export default function Service() {
         setLoading(true);
         const { data } = await axios.get("/api/service");
         setService(data.data);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("Алдаа гарлаа:", err);
       } finally {
         setLoading(false);
@@ -30,7 +30,7 @@ export default function Service() {
         const { data } = await axios.get("/api/category");
 
         setCategories(data.allCategory);
-      } catch (error) {}
+      } catch {}
     };
     getAllCategories();
     getAllService();

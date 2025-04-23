@@ -1,5 +1,4 @@
 "use client";
-import { useUser } from "@/app/_context/UserContext";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -66,7 +65,7 @@ export function ProfileTable() {
               </Button>
             </div>
           </CardContent>
-        </Card> 
+        </Card>
       </TabsContent>
 
       <TabsContent value="password">
@@ -74,7 +73,8 @@ export function ProfileTable() {
           <CardHeader>
             <CardTitle>Password</CardTitle>
             <CardDescription>
-              Change your password here. After saving, you'll be logged out.
+              Change your password here. After saving, you&apos;ll be logged
+              out.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">

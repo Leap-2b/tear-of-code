@@ -6,18 +6,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  Calendar,
-  Heart,
-  LayoutDashboard,
-  LogOut,
-  Menu,
-  MenuSquare,
-  Settings,
-  User,
-} from "lucide-react";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { Calendar, Heart, LogOut, MenuSquare, User } from "lucide-react";
 
 export default function ProfileSideBar() {
   return (

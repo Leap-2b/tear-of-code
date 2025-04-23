@@ -1,5 +1,4 @@
 "use client";
-
 import type React from "react";
 import { useUser } from "@/app/_context/UserContext";
 import { useState } from "react";
@@ -11,8 +10,8 @@ export const ShowProfile = () => {
   const { user } = useUser();
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
-    username: user.username,
-    email: user.email,
+    username: user?.username,
+    email: user?.email,
     phoneNumber: "(976) 1234-5678",
   });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,23 +22,28 @@ export const ShowProfile = () => {
     // Here you would typically save the data to a database
     setIsEditing(false);
 
-    const res = await fetch(`/api/editProfile?_id=${user._id}`, {
+    const res = await fetch(`/api/editProfile?_id=${user?._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(profile),
     });
-    const data = await res.json();
+    console.log(res);
   };
 
   const handleCancel = () => {
-    // Reset any changes
-    setProfile(user);
+    if (user) {
+      setProfile({
+        username: user.username ?? undefined,
+        email: user.email ?? undefined,
+        phoneNumber: user.phoneNumber || "",
+      });
+    }
     setIsEditing(false);
   };
   function phoneSelect() {
-    const userPhone = user.phone;
+    const userPhone = user?.phoneNumber;
     if (!userPhone) {
       return "(+976) 1234-5678";
     } else {

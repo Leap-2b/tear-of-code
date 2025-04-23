@@ -1,7 +1,7 @@
 "use client";
 import { useAppointment } from "@/app/_context/Appointment";
+import { ServiceType, StaffType } from "@/app/utils/types";
 import { Button } from "@/components/ui/button";
-import { ServiceType, StaffType } from "@/server/utils";
 import axios from "axios";
 import { Star } from "lucide-react";
 import Image from "next/image";
@@ -10,9 +10,7 @@ import React, { useEffect, useState } from "react";
 
 const ServiceStaffs = () => {
   const params = useParams();
-  const serviceId = Array.isArray(params.serviceId)
-    ? params.serviceId[0]
-    : params.serviceId;
+  const serviceId = params.serviceId ? params.serviceId[0] : params.serviceId;
 
   const [allStaff, setAllStaff] = useState<StaffType[] | null>(null);
   const router = useRouter();
@@ -38,13 +36,8 @@ const ServiceStaffs = () => {
   const serviceStaffs = allStaff?.filter(
     (staff) =>
       Array.isArray(staff.services) &&
-      staff.services.find(
-        (service: ServiceType) => service._id.toString() === serviceId
-      )
+      staff.services.find((service) => service?._id === serviceId?.toString())
   );
-
-  console.log("serviceStaffs", serviceStaffs);
-
   const handleClick = (id: string) => {
     setServiceStaffId(id);
     setServiceId(serviceId ?? "");

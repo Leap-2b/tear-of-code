@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { signup } from "@/actions/signup";
 import axios from "axios";
 import { setLocal } from "../utils/handle-local";
+import { Loader } from "../(auth)/auth/_compoments/Loader";
 
 type UserContextType = {
   user?: any;
@@ -109,7 +110,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   if (!isReady)
     return (
       <div className="flex items-center justify-center w-screen h-screen">
-        load
+        <Loader />
       </div>
     );
 

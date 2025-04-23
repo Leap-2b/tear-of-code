@@ -66,7 +66,7 @@ export interface ServiceType {
 }
 
 export interface CategoryType {
-  _id: Schema.Types.ObjectId;
+  _id: string;
   name: string;
   image: string;
 }

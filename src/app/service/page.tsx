@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { CategoryType, ServiceType } from "@/server/utils";
 import axios from "axios";
 import SalonService from "./_components/Service";
+import { Loader } from "../(auth)/auth/_compoments/Loader";
 
 export default function Service() {
   const [service, setService] = useState<ServiceType[] | null>(null);
@@ -34,6 +35,15 @@ export default function Service() {
     getAllCategories();
     getAllService();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <div className="w-full  h-full px-[16px] bg-white pt-4">
       <Tabs defaultValue="all">
@@ -72,10 +82,6 @@ export default function Service() {
             </TabsContent>
           );
         })}
-
-        {/* <TabsContent value="nails">
-          <Nails service={service} />
-        </TabsContent> */}
       </Tabs>
       <AskedQuest />
     </div>

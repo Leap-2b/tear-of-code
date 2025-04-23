@@ -61,7 +61,7 @@ export interface FeedbackType {
 }
 
 export interface ServiceType {
-  _id: Schema.Types.ObjectId;
+  _id: string;
   name: string;
   price: number;
   category: CategoryType;

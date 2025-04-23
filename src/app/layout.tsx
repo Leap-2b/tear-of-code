@@ -5,7 +5,7 @@ import { Header } from "./_components/Header";
 import { StaffProvider } from "./_context/StaffContext";
 import { Toaster } from "sonner";
 import { UserProvider } from "./_context/UserContext";
-import AppointmentsProvider from "./_context/Appointment";
+import AppointmentsProvider from "./_context/AppointmentContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

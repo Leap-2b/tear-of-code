@@ -38,8 +38,6 @@ const ServicesPage = () => {
     (service) => service.category._id.toString() === categoryId
   );
 
-  console.log("matchedServices", matchedServices);
-
   const matchedCategoryName = matchedServices?.[0]?.category?.name;
 
   if (!categoryId) {

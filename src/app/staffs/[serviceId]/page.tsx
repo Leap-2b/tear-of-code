@@ -1,5 +1,6 @@
 "use client";
-import { useAppointment } from "@/app/_context/Appointment";
+
+import { useAppointment } from "@/app/_context/AppointmentContext";
 import { ServiceType, StaffType } from "@/app/utils/types";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
@@ -27,8 +28,6 @@ const ServiceStaffs = () => {
     }
   };
 
-  console.log("allStaff", allStaff);
-
   useEffect(() => {
     getServiceStaffs();
   }, []);
@@ -38,10 +37,11 @@ const ServiceStaffs = () => {
       Array.isArray(staff.services) &&
       staff.services.find((service) => service?._id === serviceId?.toString())
   );
+
   const handleClick = (id: string) => {
     setServiceStaffId(id);
     setServiceId(serviceId ?? "");
-    router.push(`/check-out/${id}`);
+    router.push(`/booking?serviceStaffId=${id}&serviceId=${serviceId}`);
   };
 
   return (

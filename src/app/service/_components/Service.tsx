@@ -7,7 +7,7 @@ interface HairCutProps {
   category: CategoryType | null;
 }
 
-export default function HairCut({ service, category }: HairCutProps) {
+export default function SalonService({ service, category }: HairCutProps) {
   if (!service) return <div>Түр хүлээнэ үү...</div>;
 
   const myService = service.filter(

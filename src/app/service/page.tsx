@@ -1,11 +1,11 @@
 "use client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import AskedQuest from "./components/AskedQuest";
+import AskedQuest from "./_components/AskedQuest";
 // import Nails from "./components/Nails";
-import HairCut from "./components/HairCut";
 import { useEffect, useState } from "react";
 import { CategoryType, ServiceType } from "@/server/utils";
 import axios from "axios";
+import SalonService from "./_components/Service";
 
 export default function Service() {
   const [service, setService] = useState<ServiceType[] | null>(null);
@@ -55,7 +55,7 @@ export default function Service() {
         <TabsContent value="all">
           {categories?.map((category) => {
             return (
-              <HairCut
+              <SalonService
                 key={category._id}
                 service={service}
                 category={category}
@@ -67,7 +67,7 @@ export default function Service() {
         {categories?.map((category) => {
           return (
             <TabsContent key={category._id} value={category._id}>
-              <HairCut service={service} category={category} />
+              <SalonService service={service} category={category} />
             </TabsContent>
           );
         })}

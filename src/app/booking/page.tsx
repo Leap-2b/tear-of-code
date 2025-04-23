@@ -1,3 +1,6 @@
+import AppointmentSummary from "./_components/AppointmentSummary";
+import CalendarWithTime from "./_components/CalendarWithTime";
+
 const BookingPage = () => {
   return (
     <div className="max-w-[480px] w-full px-4 py-8 bg-[#ffffff] ">

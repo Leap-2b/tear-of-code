@@ -10,10 +10,8 @@ export async function GET(
 ) {
   try {
     const userId = context.params.id.replace(/"/g, "");
-    console.log("User ID:", userId);
 
     const user = await UserModel.findById(userId);
-    console.log("userrr", user);
 
     return NextResponse.json({ message: `User ID received:`, user });
   } catch (error) {

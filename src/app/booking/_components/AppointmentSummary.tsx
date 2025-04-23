@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const AppointmentSummary = () => {
-  const [selectedService, setSelectedService] = useState<{
+  const [selectedService] = useState<{
     name: string;
     duration: string;
     date: string | null;

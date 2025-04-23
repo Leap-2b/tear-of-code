@@ -6,9 +6,8 @@ export async function signup(user: UserType) {
     const { data } = await axios.post("/api/signup", {
       user,
     });
-
     return { data };
-  } catch (error) {
+  } catch {
     return { error: "An unexpected error occurred" };
   }
 }

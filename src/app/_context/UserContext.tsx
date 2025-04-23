@@ -1,7 +1,7 @@
 "use client";
 import { signIn } from "@/actions/signin";
 import { UserType } from "@/server/utils";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { signup } from "@/actions/signup";
@@ -10,7 +10,7 @@ import { setLocal } from "../utils/handle-local";
 import { Loader } from "../(auth)/auth/_compoments/Loader";
 
 type UserContextType = {
-  user?: any;
+  user?: UserType | null;
   login: (email: string, password: string) => Promise<void>;
   createUser: (user: UserType) => Promise<void>;
   logout: () => void;
@@ -32,9 +32,8 @@ const UserContext = createContext<UserContextType>(defaultContext);
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const { push } = useRouter();
   const router = useRouter();
-  const [user, setUser] = useState<any | null>(null);
+  const [user, setUser] = useState<UserType | null>(null);
   const [isReady, setIsReady] = useState(false);
-  const pathname = usePathname();
   const navigateToPath = (path: string) => push(path);
 
   const login = async (email: string, password: string) => {
@@ -45,8 +44,8 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
       setLocal("id", data.data.user._id);
       toast.success(data.data.message);
       return navigateToPath("/");
-    } catch (error: any) {
-      toast.error(error.toString());
+    } catch (error: unknown) {
+      toast.error(axios.isAxiosError(error).toString());
       console.log("error in context", error);
     } finally {
       setIsReady(true);
@@ -87,7 +86,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         console.log("user", data);
         setUser(data.user);
         // navigateToPath("/");
-      } catch (error) {
+      } catch {
         localStorage.removeItem("id");
         toast.error("Your session has expired. Please login again.");
       } finally {

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const CalendarWithTime = () => {
   // Огноо, цагийн state
-  const [currentDate, setCurrentDate] = useState(new Date(2025, 3, 16)); // 2025-04-16
+  const [currentDate] = useState(new Date(2025, 3, 16)); // 2025-04-16
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
 

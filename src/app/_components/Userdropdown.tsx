@@ -1,21 +1,14 @@
 "use client";
-
 import { useState, useRef, useEffect } from "react";
 import { User, Calendar, Settings, LogOut } from "lucide-react";
-import Image from "next/image";
 import { useUser } from "../_context/UserContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-interface UserDropdownProps {
-  userName?: string;
-  userEmail?: string;
-  avatarSrc?: string;
-}
 
 export default function UserDropdown() {
   const { logout } = useUser();
   const { user } = useUser();
-  const userName = user.username;
-  const userEmail = user.email;
+  const userName = user?.username;
+  const userEmail = user?.email;
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 

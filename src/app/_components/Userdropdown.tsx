@@ -27,7 +27,6 @@ export default function UserDropdown() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-  console.log(user);
   return (
     <div className="relative" ref={dropdownRef}>
       <button

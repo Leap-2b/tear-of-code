@@ -25,43 +25,43 @@ export default function MenusideBar() {
         <SheetTrigger className="h-full size-5 flex items-center my-auto overflow-hidden cursor-pointer ">
           <MenuSquare className="size-5"/>
         </SheetTrigger>
-        <SheetContent>
-          <SheetHeader className=" mt-20 ml-4 flex flex-col gap-4 font-semibold text-[22px] ">
+        <SheetContent className="max-w-[260px]">
+          <SheetHeader className=" mt-10 ml-1 flex flex-col gap-4 font-semibold text-[15px] ">
             <SheetTitle
-              className=" cursor-pointer flex gap-2 hover:underline "
+              className=" cursor-pointer flex gap-2 hover:underline items-center"
               onClick={() => router.push("/service")}
             >
-              <ScanHeart className="mt-1.5" />
+              <ScanHeart size={20} strokeWidth={2} />
               Үйлчилгээ
             </SheetTitle>
             <Link href={"/our-staff"}>
               <SheetTitle
-                className=" cursor-pointer flex gap-2 hover:underline "
+                className=" cursor-pointer flex gap-2 hover:underline items-center"
                 onClick={() => router.push("/our-staff")}
               >
-                <UserCheck className="mt-1.5" />
+                <UserCheck size={20} strokeWidth={2} />
                 Манай Үсчид
               </SheetTitle>
             </Link>
             <SheetTitle
-              className=" cursor-pointer flex gap-2 hover:underline "
+              className=" cursor-pointer flex gap-2 hover:underline items-center"
               onClick={() => router.push("/contact")}
             >
-              <PhoneCall />
+              <PhoneCall size={20} strokeWidth={2}/>
               Холбоо барих
             </SheetTitle>
             <SheetTitle
-              className=" cursor-pointer flex gap-2 hover:underline "
+              className=" cursor-pointer flex gap-2 hover:underline items-center"
               onClick={() => router.push("/about-us")}
             >
-              <EqualApproximately className="mt-1.5" />
+              <EqualApproximately size={20} strokeWidth={2} />
               Бидний тухай
             </SheetTitle>
             <SheetTitle
-              className=" cursor-pointer flex gap-2 hover:underline "
+              className=" cursor-pointer flex gap-2 hover:underline items-center"
               onClick={() => router.push("/auth")}
             >
-              <LogIn className="mt-1.5" />
+              <LogIn size={20} strokeWidth={2} />
               Нэвтрэх / Бүртгүүлэх
             </SheetTitle>
           </SheetHeader>

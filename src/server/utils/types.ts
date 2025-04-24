@@ -40,6 +40,7 @@ export interface AppointmentType {
   userId: UserType;
   staffId: StaffType;
   date: Date;
+  time: string;
   status: AppointmentStatusEnum;
   paid: boolean;
   paymentMethod: string;

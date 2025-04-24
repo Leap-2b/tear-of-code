@@ -44,11 +44,12 @@ export default function CheckOut() {
   const submitBooking = async (formData: formDataType) => {
     try {
       const res = await axios.post("/api/appointment", {
-        matchedServiceId: matchedServiceId,
-        matchedStaffId: matchedStaffId,
-        selectedDate: selectedDate,
-        selectedTime: selectedTime,
+        staffId: matchedStaffId,
+        date: selectedDate,
+        time: selectedTime,
+        serviceIds: matchedServiceId,
         paid: true,
+        paymentMethod: "Qpay",
         username: formData?.username,
         email: formData?.email,
         phone: formData?.phone,

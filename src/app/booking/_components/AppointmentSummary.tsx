@@ -104,7 +104,7 @@ const AppointmentSummary = ({
             </span>
           </div>
           <span className="font-medium text-gray-900">
-            {matchedService?.price}
+            {matchedService?.price}₮
           </span>
         </div>
 
@@ -132,7 +132,7 @@ const AppointmentSummary = ({
         <div className="flex py-2 border-y border-gray-200 justify-between items-center mb-5">
           <span className="font-bold ">Нийт</span>
           <span className="font-bold text-gray-900">
-            {matchedService?.price}
+            {matchedService?.price}₮
           </span>
         </div>
 

@@ -5,6 +5,8 @@ import { createContext, Dispatch, useContext, useState } from "react";
 type AppointmentContextType = {
   setServiceId: Dispatch<string>;
   setServiceStaffId: Dispatch<string>;
+  serviceId: string | null;
+  serviceStaffId: string | null;
 };
 
 const appointmentContext = createContext<AppointmentContextType | null>(null);
@@ -23,6 +25,8 @@ const AppointmentsProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         setServiceStaffId,
         setServiceId,
+        serviceId,
+        serviceStaffId,
       }}
     >
       {children}

@@ -70,3 +70,14 @@ export interface CategoryType {
   name: string;
   image: string;
 }
+export interface AppointmentsType {
+  id: string;
+  service: string;
+  barber: string;
+  date: string;
+  time: string;
+  duration: string;
+  price: string;
+  status: "completed" | "pending" | "cancelled" | string;
+  image: string;
+};

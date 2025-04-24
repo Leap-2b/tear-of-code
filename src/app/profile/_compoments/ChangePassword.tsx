@@ -31,6 +31,7 @@ export function ChangePassword() {
     //   },
     //   body: JSON.stringify(profile),
     // });
+    console.log(value)
   };
   return (
     <Dialog>

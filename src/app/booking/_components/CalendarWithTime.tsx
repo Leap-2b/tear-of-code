@@ -1,14 +1,14 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import React, { useState } from "react";
 
 const CalendarWithTime = ({
-  setSelectedService,
+  setSelectedServiceDate,
 }: {
-  setSelectedService: React.Dispatch<
+  setSelectedServiceDate: React.Dispatch<
     React.SetStateAction<{
-      duration: string;
       date: string | null;
     }>
   >;
@@ -65,28 +65,24 @@ const CalendarWithTime = ({
                 onSelect={(date) => {
                   setSelectedDate(date);
                   if (date) {
-                    setSelectedService((prev) => ({
+                    setSelectedServiceDate((prev) => ({
                       ...prev,
                       date: date.toDateString(),
                     }));
                   }
                 }}
-                className="rounded-md border shadow"
+                className="rounded-md border shadow mx-auto"
                 disabled={(date) => {
                   const today = new Date();
                   today.setHours(0, 0, 0, 0);
 
                   const startOfWeek = new Date(today);
-                  startOfWeek.setDate(today.getDate() - today.getDay()); // Sunday
+                  startOfWeek.setDate(today.getDate() - today.getDay());
 
                   const endOfWeek = new Date(startOfWeek);
-                  endOfWeek.setDate(startOfWeek.getDate() + 6); // Saturday
+                  endOfWeek.setDate(startOfWeek.getDate() + 6);
 
-                  return (
-                    date < today || // passed dates
-                    date < startOfWeek || // before this week's Sunday
-                    date > endOfWeek // after this week's Saturday
-                  );
+                  return date < today || date < startOfWeek || date > endOfWeek;
                 }}
               />
             </div>
@@ -94,20 +90,17 @@ const CalendarWithTime = ({
         </div>
 
         <div>
-          <h3 className="mb-2 font-medium">Available Time Slots</h3>
+          <h3 className="mb-2 font-medium">Боломжтой цаг хугацаа</h3>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
             {timeSlots.map((time) => (
-              <button
+              <Button
                 key={time}
-                className={`py-2 px-3 rounded-lg cursor-pointer border text-sm ${
-                  selectedTime === time
-                    ? "bg-blue-600 text-white border-blue-600"
-                    : "border-gray-300 hover:bg-gray-50"
-                }`}
+                variant={selectedTime === time ? "default" : "secondary"}
+                className="py-2 px-3 rounded-lg cursor-pointer text-sm"
                 onClick={() => {
                   setSelectedTime(time);
                   if (selectedDate) {
-                    setSelectedService((prev) => ({
+                    setSelectedServiceDate((prev) => ({
                       ...prev,
                       date: selectedDate.toDateString(),
                       time: time,
@@ -116,7 +109,7 @@ const CalendarWithTime = ({
                 }}
               >
                 {time}
-              </button>
+              </Button>
             ))}
           </div>
         </div>

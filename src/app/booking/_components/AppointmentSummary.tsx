@@ -1,7 +1,7 @@
 "use client";
 
-import { useAppointment } from "@/app/_context/AppointmentContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { ServiceType, StaffType } from "@/server/utils";
 import axios from "axios";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
@@ -9,18 +9,17 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-type SelectedService = {
-  duration: string;
+type SelectedServiceDate = {
   date: string | null;
   time?: string;
 };
 
 const AppointmentSummary = ({
-  selectedService,
+  selectedServiceDate,
 }: {
-  selectedService: SelectedService;
+  selectedServiceDate: SelectedServiceDate;
 }) => {
-  const [matchetService, setMatchedService] = useState<ServiceType | null>(
+  const [matchedService, setMatchedService] = useState<ServiceType | null>(
     null
   );
   const [matchedStaff, setMatchedStaff] = useState<StaffType | null>(null);
@@ -29,8 +28,6 @@ const AppointmentSummary = ({
 
   const serviceId = searchParams.get("serviceId");
   const serviceStaffId = searchParams.get("serviceStaffId");
-
-  // if()
 
   const getService = async () => {
     try {
@@ -72,9 +69,8 @@ const AppointmentSummary = ({
     }
   }, [serviceId, serviceStaffId]);
 
-  console.log("selectedService => ", selectedService);
   return (
-    <div className="max-w-md mx-auto p-6 bg-white border-[#e2e8f0] border rounded-[10px] shadow-sm">
+    <div className=" mx-auto p-6 bg-white border-[#e2e8f0] border rounded-[10px] shadow-sm">
       {/* Header */}
       <h1 className="text-2xl font-bold mb-6 text-gray-800">
         Томилгооны хураангуй
@@ -99,16 +95,16 @@ const AppointmentSummary = ({
         <div className="flex justify-between border-b border-gray-200 pb-6 ">
           <div className="flex flex-col items-start ">
             <h2 className="text-lg font-semibold mb-2 text-gray-800">
-              {matchetService?.name}
+              {matchedService?.name}
             </h2>
 
             <span className="text-gray-500 flex items-center gap-1 ">
               <Clock className="w-[17px] h-[17px] " />{" "}
-              {matchetService?.duration} мин
+              {matchedService?.duration} мин
             </span>
           </div>
           <span className="font-medium text-gray-900">
-            {matchetService?.price}
+            {matchedService?.price}
           </span>
         </div>
 
@@ -116,13 +112,16 @@ const AppointmentSummary = ({
           <div className="flex items-center">
             <Calendar className="w-[17px] h-[17px] text-gray-500 " />{" "}
             <span className="text-[18px] font-[500] ml-1 ">
-              {selectedService.date}
+              {selectedServiceDate.date}
             </span>
           </div>
 
           <div className="flex items-center">
-            <span className=" text-gray-500">
-              {selectedService.time ? selectedService.time : "Select a time"}
+            <Clock className="w-[17px] h-[17px] text-gray-500 mr-1" />{" "}
+            <span>
+              {selectedServiceDate.time
+                ? selectedServiceDate.time
+                : "Цагaa сонгоно уу"}
             </span>
           </div>
         </div>
@@ -133,14 +132,19 @@ const AppointmentSummary = ({
         <div className="flex py-2 border-y border-gray-200 justify-between items-center mb-5">
           <span className="font-bold ">Нийт</span>
           <span className="font-bold text-gray-900">
-            {matchetService?.price}
+            {matchedService?.price}
           </span>
         </div>
 
-        <Link href={"/checkout"}>
-          <button className="w-full py-3 px-4 cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-200 flex items-center justify-center gap-3 ">
+        <Link
+          href={`/check-out?matchedService=${matchedService?._id}&matchedStaff=${matchedStaff?._id}&selectedDate=${selectedServiceDate}`}
+        >
+          <Button
+            disabled={!selectedServiceDate.time}
+            className="w-full py-3 px-4 cursor-pointer  font-medium rounded-lg transition duration-200 flex items-center justify-center gap-3 "
+          >
             Төлбөр тооцоог үргэлжлүүлнэ үү <ArrowRight className="size-5 " />
-          </button>
+          </Button>
         </Link>
       </div>
     </div>

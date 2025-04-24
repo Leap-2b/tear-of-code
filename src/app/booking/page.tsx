@@ -7,11 +7,9 @@ import CalendarWithTime from "./_components/CalendarWithTime";
 const BookingPage = () => {
   // odoo mfdkasl
 
-  const [selectedService, setSelectedService] = useState<{
-    duration: string;
+  const [selectedServiceDate, setSelectedServiceDate] = useState<{
     date: string | null;
   }>({
-    duration: "",
     date: "",
   });
   return (
@@ -21,10 +19,10 @@ const BookingPage = () => {
         Үйлчилгээний огноо болон цагаа сонгоно уу{" "}
       </h4>
       <div className="mt-8 ">
-        <CalendarWithTime setSelectedService={setSelectedService} />
+        <CalendarWithTime setSelectedServiceDate={setSelectedServiceDate} />
       </div>
       <div className="mt-12 ">
-        <AppointmentSummary selectedService={selectedService} />
+        <AppointmentSummary selectedServiceDate={selectedServiceDate} />
       </div>
     </div>
   );

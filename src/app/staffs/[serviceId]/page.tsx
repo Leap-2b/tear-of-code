@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 
 const ServiceStaffs = () => {
   const params = useParams();
-  const serviceId = params.serviceId ? params.serviceId[0] : params.serviceId;
+  const serviceId = params.serviceId;
 
   const [allStaff, setAllStaff] = useState<StaffType[] | null>(null);
   const router = useRouter();
@@ -40,7 +40,9 @@ const ServiceStaffs = () => {
 
   const handleClick = (id: string) => {
     setServiceStaffId(id);
-    setServiceId(serviceId ?? "");
+    if (serviceId) {
+      setServiceId(serviceId.toString());
+    }
     router.push(`/booking?serviceStaffId=${id}&serviceId=${serviceId}`);
   };
 

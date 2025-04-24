@@ -5,6 +5,7 @@ import MenusideBar from "./MenuSideBar";
 import Link from "next/link";
 import { useUser } from "../_context/UserContext";
 import UserDropdown from "./Userdropdown";
+import UserMenusideBar from "./UserMenuSideBar";
 
 export function Header() {
   const { user } = useUser();
@@ -22,7 +23,7 @@ export function Header() {
         {user ? (
           <>
             <UserDropdown />
-            <MenusideBar />
+            <UserMenusideBar />
           </>
         ) : (
           <>

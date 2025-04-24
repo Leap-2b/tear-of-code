@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ShowProfile } from "./ShowProfile";
+import { ChangePassword } from "./ChangePassword";
 
 export function ProfileTable() {
   return (
@@ -42,16 +43,18 @@ export function ProfileTable() {
                 <h4 className="font-semibold">Нууц үг</h4>
                 <p>Хамгийн сүүлд 0 сарын өмнө өөрчлөгдсөн</p>
               </div>
-              <Button className="bg-white text-black border-[1px] border-gray-200 font-semibold">
-                Change Password
-              </Button>
+              {/* Change password */}
+              <ChangePassword />
             </div>
             <div className="flex w-full justify-between items-center">
               <div>
                 <h4 className="font-semibold">Имэйлийн мэдэгдэл</h4>
                 <p>Уулзалтын сануулга болон шинэчлэлтүүдийг хүлээн авах</p>
               </div>
-              <Button className="bg-white text-black border-[1px] border-gray-200 font-semibold">
+              <Button
+                variant={"secondary"}
+                className="border-[1px] font-semibold"
+              >
                 Мэдэгдлийг удирдах
               </Button>
             </div>
@@ -60,14 +63,17 @@ export function ProfileTable() {
                 <h4 className="font-semibold">Бүртгэл устгах</h4>
                 <p>Бүртгэл хаах</p>
               </div>
-              <Button className="bg-red-400 text-white border-[1px] border-gray-200 font-semibold">
+              <Button
+                variant={"destructive"}
+                className="bg-red-400 font-semibold"
+              >
                 Бүртгэл устгах
               </Button>
             </div>
           </CardContent>
         </Card>
       </TabsContent>
-
+      {/* Table 2 */}
       <TabsContent value="password">
         <Card>
           <CardHeader>

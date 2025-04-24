@@ -18,7 +18,7 @@ export const useAppointment = () => {
 const AppointmentsProvider = ({ children }: { children: React.ReactNode }) => {
   const [serviceId, setServiceId] = useState<string | null>(null);
   const [serviceStaffId, setServiceStaffId] = useState<string | null>(null);
-  console.log(serviceId, serviceStaffId);
+  // console.log(serviceId, serviceStaffId);
 
   return (
     <appointmentContext.Provider

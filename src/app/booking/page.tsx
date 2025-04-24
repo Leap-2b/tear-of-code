@@ -5,8 +5,6 @@ import AppointmentSummary from "./_components/AppointmentSummary";
 import CalendarWithTime from "./_components/CalendarWithTime";
 
 const BookingPage = () => {
-  // odoo mfdkasl
-
   const [selectedServiceDate, setSelectedServiceDate] = useState<{
     date: string | null;
   }>({

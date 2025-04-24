@@ -137,7 +137,7 @@ const AppointmentSummary = ({
         </div>
 
         <Link
-          href={`/check-out?matchedService=${matchedService?._id}&matchedStaff=${matchedStaff?._id}&selectedDate=${selectedServiceDate}`}
+          href={`/check-out?matchedService=${matchedService?._id}&matchedStaff=${matchedStaff?._id}&selectedDate=${selectedServiceDate.date}&selectedTime=${selectedServiceDate.time}`}
         >
           <Button
             disabled={!selectedServiceDate.time}

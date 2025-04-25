@@ -46,14 +46,14 @@ export default function CheckOut() {
   const logedUserSubmitBooking = async () => {
     try {
       const res = await axios.post("/api/appointment", {
+        userId: userId,
         staffId: matchedStaffId,
         date: selectedDate,
         time: selectedTime,
-        serviceIds: matchedServiceId,
         paid: true,
         paymentMethod: "Qpay",
+        serviceIds: matchedServiceId,
         price: servicePrice,
-        userId: userId,
       });
 
       console.log("res.data", res.data);
@@ -89,9 +89,9 @@ export default function CheckOut() {
 
   useEffect(() => {
     getServicePrice();
-    const userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("id");
     if (userId) {
-      setUserId(userId);
+      setUserId(JSON.parse(userId));
     }
   }, []);
 
@@ -103,7 +103,10 @@ export default function CheckOut() {
       </p>
       <div className="grid grid-cols-1  gap-8 w-full ">
         {userId ? (
-          <LogedContactInfo submitBooking={logedUserSubmitBooking} />
+          <LogedContactInfo
+            userId={userId}
+            submitBooking={logedUserSubmitBooking}
+          />
         ) : (
           <LogoutContactInfo
             submitBooking={logoutUserSubmitBooking}

@@ -63,6 +63,7 @@ export interface ServiceType {
   description: string;
   createdAt: Date;
   updatedAt: Date;
+  image: string;
 }
 
 export interface CategoryType {
@@ -80,4 +81,4 @@ export interface AppointmentsType {
   price: string;
   status: "completed" | "pending" | "cancelled" | string;
   image: string;
-};
+}

@@ -1,39 +1,39 @@
 "use client";
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+
+import React, { createContext, useEffect, useState } from "react";
+import { ServiceType } from "@/server/utils";
 import axios from "axios";
 
-type ServiceType = {
-  services: ServiceType[] | undefined;
-  setServices: React.Dispatch<React.SetStateAction<ServiceType[] | undefined>>;
-};
+interface ServiceContextType {
+  allService: ServiceType[] | null;
+}
 
-export const ServiceContext = createContext<ServiceType>({} as ServiceType);
+export const ServiceContext = createContext<ServiceContextType>({
+  allService: null,
+});
 
-export const useService = () => {
-  return useContext(ServiceContext);
-};
+export const ServiceProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [allService, setAllService] = useState<ServiceType[] | null>(null);
 
-export const StaffProvider = ({ children }: { children: ReactNode }) => {
-  const [services, setServices] = useState<ServiceType[]>();
-
-  const getAllServices = async () => {
-    const response = await axios.get("/api/service/");
-    setServices(response.data);
-    console.log("services => ", response.data);
+  const fetchServices = async () => {
+    try {
+      const res = await axios.get("/api/service");
+      setAllService(res.data.data);
+    } catch (error) {
+      console.error("Алдаа гарлаа", error);
+    }
   };
 
   useEffect(() => {
-    getAllServices();
+    fetchServices();
   }, []);
 
   return (
-    <ServiceContext.Provider value={{ services: services, setServices }}>
+    <ServiceContext.Provider value={{ allService }}>
       {children}
     </ServiceContext.Provider>
   );

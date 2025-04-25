@@ -63,7 +63,7 @@ const ServiceStaffs = () => {
               <div className=" aspect-[3/4] w-full overflow-hidden">
                 <Image
                   alt=""
-                  src={""}
+                  src={staff?.image}
                   height={500}
                   width={500}
                   className="h-full w-full object-cover "

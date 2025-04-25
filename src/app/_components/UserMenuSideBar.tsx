@@ -6,16 +6,50 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { LogOut, MenuSquare, Heart, Calendar, User } from "lucide-react";
-import Link from "next/link";
+import {
+  LogOut,
+  MenuSquare,
+  Heart,
+  Calendar,
+  User,
+  BriefcaseBusiness,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useUser } from "../_context/UserContext";
-import Image from "next/image";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { motion } from "framer-motion";
 
 export default function UserMenusideBar() {
-  const { user, logout } = useUser();
+  const { logout } = useUser();
   const router = useRouter();
+
+  const menuItems = [
+    {
+      icon: <Calendar className="w-5" />,
+      text: "Үйлчилгээ",
+      path: "/service",
+    },
+    {
+      icon: <BriefcaseBusiness className="w-5" />,
+      text: "Манай үсчин",
+      path: "/our-staff",
+    },
+    {
+      icon: <Heart className="w-5" />,
+      text: "Холбоо барих",
+      path: "/contact",
+    },
+    {
+      icon: <Calendar className="w-5" />,
+      text: "Миний уулзалтууд",
+      path: "/dashboard/appointments",
+    },
+    {
+      icon: <User className="w-5" />,
+      text: "Миний профайл",
+      path: "/dashboard/profile",
+    },
+  ];
+
   return (
     <div>
       <Sheet>
@@ -23,48 +57,38 @@ export default function UserMenusideBar() {
           <MenuSquare className="size-5" />
         </SheetTrigger>
         <SheetContent className="max-w-[260px]">
-          <SheetHeader className="flex flex-col gap-4 font-semibold text-[15px] p-0 ">
-            <SheetTitle className=" cursor-pointer flex gap-2 hover:underline border-b-[1px] border-black/10 w-full p-5 ">
-              <Avatar className="w-10 h-10">
-                <AvatarImage src="https://github.com/shadcn.png" />
-              </Avatar>
-              <div>
-                <p>{user?.username}</p>
-                <p className="text-gray-400 text-[12px]">{user?.email}</p>
-              </div>
-            </SheetTitle>
-            <SheetTitle
-              className=" cursor-pointer flex gap-2 hover:underline ml-4 items-center"
-              onClick={() => router.push("/dashboard/appointments")}
+          <SheetHeader className="flex mt-[160px] ml-5 flex-col gap-4 font-semibold text-[15px] p-0">
+            {menuItems.map((item, index) => (
+              <motion.div
+                key={item.text}
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                whileHover={{ x: 8 }} // hover үед бага зэрэг хойш гулгах
+                transition={{ delay: index * 0.05 }}
+              >
+                <SheetTitle
+                  className="cursor-pointer flex gap-2 ml-4 items-center"
+                  onClick={() => router.push(item.path)}
+                >
+                  {item.icon}
+                  {item.text}
+                </SheetTitle>
+              </motion.div>
+            ))}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              whileHover={{ x: 8 }}
+              transition={{ delay: menuItems.length * 0.05 }}
             >
-              <Calendar className=" w-5" />
-              Захиалга
-            </SheetTitle>
-            {/*  */}
-
-            <SheetTitle
-              className=" cursor-pointer flex gap-2 hover:underline ml-4 items-center"
-              onClick={() => router.push("/dashboard/profile")}
-            >
-              <User className=" w-5" />
-              Профайл
-            </SheetTitle>
-
-            <SheetTitle
-              className=" cursor-pointer flex gap-2 hover:underline ml-4 items-center"
-              onClick={() => router.push("/contact")}
-            >
-              <Heart className=" w-5" />
-              Дуртай
-            </SheetTitle>
-
-            <SheetTitle
-              className=" cursor-pointer flex gap-2 hover:underline ml-4 items-center"
-              onClick={() => logout()}
-            >
-              <LogOut className=" w-5" />
-              Гарах
-            </SheetTitle>
+              <SheetTitle
+                className="cursor-pointer flex gap-2 ml-4 items-center"
+                onClick={() => logout()}
+              >
+                <LogOut className="w-5" />
+                Гарах
+              </SheetTitle>
+            </motion.div>
           </SheetHeader>
         </SheetContent>
       </Sheet>

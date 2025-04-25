@@ -15,8 +15,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 type formDataType = {
-  username: string;
-  email: string;
   phoneNumber: string;
 };
 
@@ -31,8 +29,6 @@ export function LogedContactInfo({
   const [open, setOpen] = useState(false);
 
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
     phoneNumber: "",
   });
 
@@ -40,8 +36,6 @@ export function LogedContactInfo({
   useEffect(() => {
     if (user) {
       setFormData({
-        username: user.username || "",
-        email: user.email || "",
         phoneNumber: user.phoneNumber || "",
       });
     }
@@ -56,15 +50,10 @@ export function LogedContactInfo({
   };
 
   const editProfile = async (formData: formDataType) => {
-    console.log("USER ID", userId);
     try {
       const res = await axios.put(`/api/editProfile?_id=${userId}`, {
-        username: formData.username,
-        email: formData.email,
         phoneNumber: formData.phoneNumber,
       });
-
-      console.log("res.data", res.data);
       alert(res.data.message);
     } catch (error) {
       console.error("Error updating profile:", error);
@@ -112,24 +101,6 @@ export function LogedContactInfo({
                   </PopoverTrigger>
                   <PopoverContent className="w-[300px] flex flex-col gap-5 p-4 bg-[#ffffff]">
                     <div className="flex flex-col gap-1 ">
-                      <Label htmlFor="username">Хэрэглэгчийн нэр</Label>
-                      <Input
-                        id="username"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1 ">
-                      <Label htmlFor="email">Имэйл</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1 ">
                       <Label htmlFor="phone">Утас</Label>
                       <Input
                         id="phone"
@@ -141,11 +112,7 @@ export function LogedContactInfo({
                     <Button
                       onClick={() => handleSave(formData)}
                       className="w-full mt-4 cursor-pointer"
-                      disabled={
-                        formData.username === "" ||
-                        formData.email === "" ||
-                        formData.phoneNumber === ""
-                      }
+                      disabled={formData.phoneNumber === ""}
                     >
                       <CreditCard />
                       Хадгалах

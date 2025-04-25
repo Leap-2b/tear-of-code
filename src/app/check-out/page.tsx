@@ -55,8 +55,6 @@ export default function CheckOut() {
         serviceIds: matchedServiceId,
         price: servicePrice,
       });
-
-      console.log("res.data", res.data);
       alert(res.data.message);
     } catch (error) {
       console.log("error", error);
@@ -79,7 +77,6 @@ export default function CheckOut() {
         price: servicePrice,
       });
 
-      console.log("res.data", res.data);
       alert(res.data.message);
     } catch (error) {
       console.log("error", error);

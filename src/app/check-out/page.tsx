@@ -2,10 +2,11 @@
 
 import { useSearchParams } from "next/navigation";
 import BookingSummary from "./_components/BookingSummary";
-import { ContactInformation } from "./_components/Contact-information";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { ServiceType } from "../utils/types";
+import { LogoutContactInfo } from "./_components/LogoutContactInfo";
+import { LogedContactInfo } from "./_components/LogedContactInfo";
 
 export type formDataType = {
   username: string;
@@ -16,6 +17,7 @@ export type formDataType = {
 export default function CheckOut() {
   const searchParams = useSearchParams();
   const [servicePrice, setServicePrice] = useState<number | null>(null);
+  const [userId, setUserId] = useState<string | null>(null);
 
   const matchedServiceId = searchParams.get("matchedService");
   const matchedStaffId = searchParams.get("matchedStaff");
@@ -41,7 +43,26 @@ export default function CheckOut() {
     }
   };
 
-  const submitBooking = async (formData: formDataType) => {
+  const logedUserSubmitBooking = async () => {
+    try {
+      const res = await axios.post("/api/appointment", {
+        userId: userId,
+        staffId: matchedStaffId,
+        date: selectedDate,
+        time: selectedTime,
+        paid: true,
+        paymentMethod: "Qpay",
+        serviceIds: matchedServiceId,
+        price: servicePrice,
+      });
+      alert(res.data.message);
+    } catch (error) {
+      console.log("error", error);
+      alert("error in submit booking for logged-in user");
+    }
+  };
+
+  const logoutUserSubmitBooking = async (formData: formDataType) => {
     try {
       const res = await axios.post("/api/appointment", {
         staffId: matchedStaffId,
@@ -56,7 +77,7 @@ export default function CheckOut() {
         price: servicePrice,
       });
 
-      console.log("res.data", res.data);
+      alert(res.data.message);
     } catch (error) {
       console.log("error", error);
       alert("error in submit booking");
@@ -65,18 +86,37 @@ export default function CheckOut() {
 
   useEffect(() => {
     getServicePrice();
+    const userId = localStorage.getItem("id");
+    if (userId) {
+      setUserId(JSON.parse(userId));
+    }
   }, []);
 
   return (
     <div className="w-full flex flex-col bg-[#ffffff] items-center px-4 py-8">
-      <h1 className="font-bold text-3xl w-full">Checkout</h1>
+      <h1 className="font-bold text-3xl w-full">Тооцоо хийх</h1>
       <p className="text-gray-500 w-full text-sm mb-8">
-        Complete your booking by providing payment details
+        Төлбөрийн дэлгэрэнгүй мэдээллийг оруулан захиалгаа дуусгана уу
       </p>
       <div className="grid grid-cols-1  gap-8 w-full ">
-        <ContactInformation submitBooking={submitBooking} />
+        {userId ? (
+          <LogedContactInfo
+            userId={userId}
+            submitBooking={logedUserSubmitBooking}
+          />
+        ) : (
+          <LogoutContactInfo
+            submitBooking={logoutUserSubmitBooking}
+            userId={userId}
+          />
+        )}
 
-        <BookingSummary />
+        <BookingSummary
+          matchedServiceId={matchedServiceId}
+          matchedStaffId={matchedStaffId}
+          selectedDate={selectedDate}
+          selectedTime={selectedTime}
+        />
       </div>
     </div>
   );

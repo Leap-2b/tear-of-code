@@ -34,7 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#eaeaea]`}
       >
-        <div className="max-w-[768px] m-auto min-h-screen">
+        <div className="m-auto min-h-screen">
           <Toaster />
           <AppointmentsProvider>
             <UserProvider>

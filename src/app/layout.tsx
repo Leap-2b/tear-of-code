@@ -9,7 +9,6 @@ import AppointmentsProvider from "./_context/AppointmentContext";
 import { ServiceProvider } from "./_context/ServiceContext";
 import { Footer } from "./_components/LayoutFooter";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -40,16 +39,11 @@ export default function RootLayout({
           <AppointmentsProvider>
             <UserProvider>
               <StaffProvider>
-
                 <ServiceProvider>
                   <Header />
                   {children}
+                  <Footer />
                 </ServiceProvider>
-
-                <Header />
-                {children}
-                <Footer/>
-
               </StaffProvider>
             </UserProvider>
           </AppointmentsProvider>

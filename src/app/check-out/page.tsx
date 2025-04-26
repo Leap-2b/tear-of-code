@@ -93,12 +93,12 @@ export default function CheckOut() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col bg-[#ffffff] items-center px-4 py-8">
+    <div className="max-w-[1400px] w-full mx-auto px-4 py-8 bg-[#ffffff] md:px-6 md:py-12">
       <h1 className="font-bold text-3xl w-full">Тооцоо хийх</h1>
       <p className="text-gray-500 w-full text-sm mb-8">
         Төлбөрийн дэлгэрэнгүй мэдээллийг оруулан захиалгаа дуусгана уу
       </p>
-      <div className="grid grid-cols-1  gap-8 w-full ">
+      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-5 lg:gap-8 w-full ">
         {userId ? (
           <LogedContactInfo
             userId={userId}

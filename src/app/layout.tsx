@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#eaeaea]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="m-auto min-h-screen">
           <Toaster />

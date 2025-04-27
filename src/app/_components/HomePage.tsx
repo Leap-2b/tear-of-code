@@ -42,12 +42,18 @@ export const HomePage = () => {
           <CarouselContent>
             {Array.from({ length: 5 }).map((_, index) => (
               <CarouselItem key={index}>
-                <div className="p-1">
+                <div className="">
                   <Card className="cursor-pointer p-0 ">
-                    <CardContent className="flex  h-[350px] sm:h-[400px] items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">
-                        {index + 1}
-                      </span>
+                    <CardContent className="flex px-0 h-[350px] sm:h-[400px] md:h-[450px] items-center justify-center ">
+                      <Image
+                        alt=""
+                        src={
+                          "https://www.styleicons.com.au/wp-content/uploads/2019/08/Best-Salon-Design-1.jpg?w=1300&h=537&crop=1"
+                        }
+                        height={500}
+                        width={1000}
+                        className="size-full rounded-lg  "
+                      />
                     </CardContent>
                   </Card>
                 </div>
@@ -55,10 +61,10 @@ export const HomePage = () => {
             ))}
           </CarouselContent>
         </Carousel>
-        <div className="w-full flex flex-col gap-5 items-center ">
+        <div className="w-full py-4 md:py-6 flex flex-col gap-8 items-center ">
           <h3 className="text-[36px] font-[700] ">Манай үйлчилгээ</h3>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 ">
+          <div className="max-w-[1400px] w-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 px-4 md:px-6 ">
             {categories?.map((category, index) => {
               return (
                 <div
@@ -85,11 +91,11 @@ export const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="w-full  bg-[#F9FAFB] py-[45px] flex flex-col items-center gap-[45px] ">
+      <div className="w-full  bg-[#F9FAFB] py-12 md:py-16 flex flex-col items-center gap-[45px] md:px-6 ">
         <h4 className="text-[36px] font-[700] text-center ">
           Апп хэрэглэх алхам
         </h4>
-        <div className="flex flex-col gap-[40px] ">
+        <div className="grid grid-cols-1  gap-8 md:md:grid-cols-3  ">
           <div className="flex flex-col items-center gap-[12px] ">
             <div className="w-16 h-16 rounded-full bg-black text-white flex justify-center items-center ">
               1

@@ -47,13 +47,13 @@ const ServiceStaffs = () => {
   };
 
   return (
-    <div className="bg-[#ffffff] w-full h-full pt-15 pb-10 px-4  ">
+    <div className="bg-[#ffffff] max-w-[1400px] w-full h-full py-8 md:py-12 mx-auto px-4 md:px-6  ">
       <h1 className="text-[30px] font-bold ">Стилистээ сонгоно уу</h1>
       <p className="text-gray-500">
         Манай туршлагатай мэргэжилтнүүдээс бүрдсэн багаас сонгон үйлчилгээгээ
         аваарай
       </p>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mt-8 ">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-8 ">
         {serviceStaffs?.map((staff, index) => {
           return (
             <div

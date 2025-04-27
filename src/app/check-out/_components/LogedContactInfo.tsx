@@ -32,7 +32,6 @@ export function LogedContactInfo({
     phoneNumber: "",
   });
 
-  // хэрэглэгчийн мэдээллийг formData-д хуулж авах
   useEffect(() => {
     if (user) {
       setFormData({

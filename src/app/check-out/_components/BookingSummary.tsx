@@ -46,7 +46,7 @@ export default function BookingSummary({
   }, [matchedStaffId, matchedServiceId]);
 
   return (
-    <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
+    <div className="w-full h-[430px] rounded-lg border bg-card text-card-foreground shadow-sm">
       <div className="p-6">
         <h2 className="mb-4 text-xl font-bold">Захиалгын хураангуй</h2>
 

@@ -65,7 +65,7 @@ export function LogoutContactInfo({
 
   return (
     <main>
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3">
         <Card className="w-full mx-auto">
           <CardHeader>
             <CardTitle className="text-xl font-bold">
@@ -151,7 +151,7 @@ export function LogoutContactInfo({
             id="1"
           >
             <h1 className="font-bold text-xl">Төлбөрийн хэсэг</h1>
-            <p className="text-center mt-5 sm:mt-20">
+            <p className="text-center mt-5 sm:mt-20 md:my-15 ">
               Мэдээллээ бүрэн оруулснаар төлбөрөө төлөх боломжтой
             </p>
           </div>

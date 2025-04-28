@@ -1,6 +1,6 @@
 "use client";
 import { useStaff } from "@/app/_context/StaffContext";
-import { StaffType } from "@/server/utils";
+import { StaffType } from "@/app/utils/types";
 import { Star } from "lucide-react";
 import Image from "next/image";
 

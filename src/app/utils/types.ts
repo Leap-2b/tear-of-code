@@ -22,8 +22,12 @@ export interface StaffType {
   name: string;
   experience: number;
   about: string;
+  facebook: string;
   rating: number;
   image: string;
+  location: string;
+  phone: string;
+  instagram: string;
   category: CategoryType;
   profession: ProfessionEnum;
   services: ServiceType[];

@@ -8,7 +8,17 @@ connectMongoDb();
 export async function POST(req: NextRequest) {
   try {
     const { email, password, username } = await req.json();
-    console.log("email", email, password, username);
+
+    const existingUsername = await UserModel.findOne({ username });
+
+    if (existingUsername) {
+      return NextResponse.json(
+        {
+          message: "Xэрэглэгчийн нэр аль хэдийн бүртгэгдсэн байна.",
+        },
+        { status: 400 }
+      );
+    }
 
     if (!email) {
       return NextResponse.json(
@@ -21,17 +31,10 @@ export async function POST(req: NextRequest) {
 
     if (existingUser) {
       return NextResponse.json(
-        { message: "Энэ имэйл хаяг аль хэдийн бүртгэгдсэн байна." },
+        {
+          message: "Энэ имэйл хаяг аль хэдийн бүртгэгдсэн байна.",
+        },
         { status: 409 }
-      );
-    }
-
-    const existingUsername = await UserModel.findOne({ username });
-
-    if (existingUsername) {
-      return NextResponse.json(
-        { message: "Xэрэглэгчийн нэр аль хэдийн бүртгэгдсэн байна." },
-        { status: 400 }
       );
     }
 
@@ -48,12 +51,12 @@ export async function POST(req: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error("Error during signup:", error);
+    console.error("Бүртгүүлэх үед алдаа гарлаа:", error);
 
     return NextResponse.json(
       {
-        message: "Internal Server Error",
-        error: error instanceof Error ? error.message : "Unknown error",
+        message: "Серверийн дотоод алдаа гарлаа.",
+        error: error instanceof Error ? error.message : "Тодорхойгүй алдаа",
       },
       { status: 500 }
     );

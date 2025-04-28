@@ -37,22 +37,13 @@ const AppointmentSchema: Schema = new Schema<AppointmentType>(
     username: { type: String, required: false, minlength: 2 },
     email: { type: String, required: false, match: /.+\@.+\..+/ },
     phone: { type: String, required: false, match: /^[0-9]{8}$/ },
+    cancellationReason: { type: String },
+    reasonType: { type: String },
+    cancellationFee: { type: Number },
+    paymentStatus: { type: String },
   },
   { timestamps: true }
 );
-
-// ✨ Pre-save validation
-AppointmentSchema.pre("save", function (next) {
-  if (!this.userId) {
-    if (!this.username || !this.email || !this.phone) {
-      const error = new Error(
-        "Зочин хэрэглэгч нэр, и-мэйл болон утасны дугаар заавал оруулах шаардлагатай."
-      );
-      return next(error);
-    }
-  }
-  next();
-});
 
 export const AppointmentModel: Model<AppointmentType> =
   models["Appointments"] ||

@@ -1,6 +1,7 @@
-import { connectMongoDb } from "@/server/db/db";
-import { AppointmentModel } from "@/server/models";
 import { NextRequest, NextResponse } from "next/server";
+import { AppointmentModel } from "@/server/models";
+import "@/server/models";
+import { connectMongoDb } from "@/server/db/db";
 
 connectMongoDb();
 
@@ -10,16 +11,21 @@ export async function POST(req: NextRequest) {
     const createdStaff = await AppointmentModel.create(appointment);
 
     return NextResponse.json(
-      { message: "Захиалга амжилттай нэмэгдлээ", createdStaff },
+      {
+        message: "Цаг амжилттай захиалагдлаа.",
+        success: true,
+        createdStaff,
+      },
+
       { status: 201 }
     );
   } catch (error) {
-    console.error("Захиалгын мэдээлэл нэмэхэд алдаа гарлаа:", error);
+    console.error("Цаг захиалах үед алдаа гарлаа:", error);
 
     return NextResponse.json(
       {
-        message: "Internal Server Error",
-        error: error instanceof Error ? error.message : "Unknown error",
+        message: "Цаг захиалах үед алдаа гарлаа.",
+        error: error instanceof Error ? error.message : "Тодорхойгүй алдаа",
       },
       { status: 500 }
     );
@@ -31,27 +37,33 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const userId = searchParams.get("userId");
 
+    console.log("USERID", userId);
+
     if (!userId) {
       return NextResponse.json(
-        { message: "Хэрэглэгчийн ID шаардлагатай" },
+        { message: "Хэрэглэгчийн ID дамжуулаагүй байна." },
         { status: 400 }
       );
     }
     const appointments = await AppointmentModel.find({ userId })
       .populate("userId")
-      .populate("serviceIds");
-
-    return NextResponse.json(
-      { message: "Амжилттай", data: appointments },
-      { status: 201 }
-    );
-  } catch (error) {
-    console.error("Error during add appointment:", error);
+      .populate("serviceId")
+      .populate("staffId");
 
     return NextResponse.json(
       {
-        message: "Internal Server Error",
-        error: error instanceof Error ? error.message : "Unknown error",
+        message: "Цаг захиалагын мэдээлэл амжилттай уншигдлаа.",
+        data: appointments,
+      },
+      { status: 201 }
+    );
+  } catch (error) {
+    console.error("Цагийн мэдээлэл унших үед алдаа гарлаа:", error);
+
+    return NextResponse.json(
+      {
+        message: "Цагийн мэдээлэл унших үед алдаа гарлаа.",
+        error: error instanceof Error ? error.message : "Тодорхойгүй алдаа",
       },
       { status: 500 }
     );

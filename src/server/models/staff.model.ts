@@ -33,6 +33,11 @@ const StaffSchema: Schema = new Schema<StaffType>(
       required: true,
     },
     availableTimes: { type: [Date], required: true },
+    phone: { type: String, required: true },
+    location: { type: String, required: true },
+    instagram: { type: String, required: true },
+    facebook: { type: String, required: true },
+    gallery: { type: [String] },
   },
   { timestamps: true }
 );

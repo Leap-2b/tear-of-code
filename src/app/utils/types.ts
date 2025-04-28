@@ -4,12 +4,23 @@ import {
   StaffRoleEnum,
 } from "../../server/constant";
 
+export interface UserCreateInputType {
+  email: string;
+  password: string;
+  phoneNumber?: string;
+  username?: string;
+  favoriteStaff?: StaffType[];
+  favoriteServices?: ServiceType[];
+}
+
 export interface UserType {
   _id?: string;
   email: string;
   password: string;
   phoneNumber?: string;
   username?: string;
+  favoriteStaff?: StaffType[];
+  favoriteServices?: ServiceType[];
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -28,6 +39,12 @@ export interface StaffType {
   profession: ProfessionEnum;
   services: ServiceType[];
   availableTimes: Date[];
+  bio: string;
+  phone: string;
+  location: string;
+  instagram: string;
+  facebook: string;
+  gallery: string[];
   createdAt: Date;
   updatedAt: Date;
 }
@@ -40,10 +57,16 @@ export interface AppointmentType {
   time: string;
   status: AppointmentStatusEnum;
   paid: boolean;
-  serviceIds: ServiceType;
+  paymentMethod: string;
+  serviceId: ServiceType;
   price: number;
-  createdAt: Date;
-  updatedAt: Date;
+  username?: string;
+  email?: string;
+  phone?: string;
+  cancellationReason?: string;
+  reasonType?: string;
+  cancellationFee?: number;
+  paymentStatus?: string;
 }
 
 export interface FeedbackType {
@@ -70,15 +93,7 @@ export interface CategoryType {
   _id: string;
   name: string;
   image: string;
-}
-export interface AppointmentsType {
-  id: string;
-  service: string;
-  barber: string;
-  date: string;
-  time: string;
-  duration: string;
-  price: string;
-  status: "completed" | "pending" | "cancelled" | string;
-  image: string;
+  description: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

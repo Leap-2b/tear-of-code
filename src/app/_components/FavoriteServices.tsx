@@ -39,7 +39,9 @@ function FavoriteServices() {
               Таны хэрэгцээнд тохирсон үйлчилгээтэй Стилистүүдийг олоорой
             </p>
             <Link href="/service">
-              <Button variant="outline">Бүх үйлчилгээг харах</Button>
+              <Button variant="outline" className="cursor-pointer ">
+                Бүх үйлчилгээг харах
+              </Button>
             </Link>
           </Card>{" "}
         </div>

@@ -1,0 +1,45 @@
+"use client";
+import { useUser } from "@/app/_context/UserContext";
+import { toast } from "sonner";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export function FavoriteButton({ staffId }: { staffId: string }) {
+  const { user, setUser } = useUser();
+  const [loading, setLoading] = useState(false);
+
+  const toggleFavorite = async () => {
+    try {
+      setLoading(true);
+      const res = await axios.post("/api/favorite-staff", { staffId });
+      toast.success("Амжилттай шинэчлэгдлээ");
+      setUser?.((prev) =>
+        prev ? { ...prev, favoriteStaff: res.data.favoriteStaff } : null
+      );
+    } catch (err: any) {
+      toast.error("Алдаа гарлаа");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const isFavorite = user?.favoriteStaff?.some(
+    (staff) => staff._id === staffId
+  );
+
+  return (
+    <Button
+      onClick={toggleFavorite}
+      variant="ghost"
+      size="icon"
+      className={`absolute right-2 top-2 h-8 w-8 rounded-full bg-white/80 ${
+        isFavorite ? "bg-red-500 text-white" : "bg-gray-200 text-gray-800"
+      }`}
+      disabled={loading}
+    >
+      <Heart />
+    </Button>
+  );
+}

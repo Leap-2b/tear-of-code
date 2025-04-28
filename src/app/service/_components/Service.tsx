@@ -18,13 +18,10 @@ export default function SalonService({ service, category }: HairCutProps) {
   return (
     <div>
       <h4 className="flex text-2xl font-bold my-7">{category?.name}</h4>
-      <div className="flex gap-3 flex-wrap">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {myService.length > 0 ? (
           myService.map((item, index) => (
-            <div
-              key={index}
-              className="border rounded-2xl p-4 w-full sm:w-[calc(50%-14px)]"
-            >
+            <div key={index} className="border rounded-2xl p-4 w-full">
               <div className="font-bold">
                 {item.name}
                 <p className="text-[12px] text-[#6c727f]">{item.description}</p>

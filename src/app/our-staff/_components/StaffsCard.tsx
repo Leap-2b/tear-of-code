@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function StaffsCards() {
   const { staffs } = useStaff();
   return (
-    <div className="flex flex-col gap-6">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
       {staffs?.map((staff: StaffType, index: number) => {
         return (
           <div key={index} className="rounded-lg border-[1px] shadow-sm ">

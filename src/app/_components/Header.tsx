@@ -19,11 +19,43 @@ export function Header() {
           StyleCut
         </Button>
       </Link>
+      <nav className="hidden md:flex md:items-center md:space-x-8">
+        <Link
+          href="/service"
+          className="text-sm font-medium text-gray-700 hover:text-gray-900"
+        >
+          Үйлчилгээнүүд
+        </Link>
+        <Link
+          href="/our-staff"
+          className="text-sm font-medium text-gray-700 hover:text-gray-900"
+        >
+          Манай ажилчид
+        </Link>
+        <Link
+          href="/about-us"
+          className="text-sm font-medium text-gray-700 hover:text-gray-900"
+        >
+          Бидний тухай
+        </Link>
+        <Link
+          href="/contact"
+          className="text-sm font-medium text-gray-700 hover:text-gray-900"
+        >
+          Холбоо барих
+        </Link>
+      </nav>
       <div className="flex gap-5 ">
         {user ? (
           <>
             <UserDropdown />
-            <UserMenusideBar />
+            <div
+              className={
+                "container md:hidden overflow-hidden transition-all duration-300 ease-in-out flex items-center"
+              }
+            >
+              <UserMenusideBar />
+            </div>
           </>
         ) : (
           <>
@@ -35,8 +67,13 @@ export function Header() {
                 <UserCircle className="size-5" />
               </Button>
             </Link>
-
-            <MenusideBar />
+            <div
+              className={
+                "container md:hidden overflow-hidden transition-all duration-300 ease-in-out flex items-center"
+              }
+            >
+              <MenusideBar />
+            </div>
           </>
         )}
       </div>

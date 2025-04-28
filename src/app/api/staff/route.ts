@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.json(
         {
           message: "Бүх ажилтнуудын мэдээлэл амжилттай олдлоо.",
-          data: allStaff,
+          allStaff,
         },
         { status: 200 }
       );

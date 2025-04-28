@@ -1,4 +1,4 @@
-import { UserType } from "@/server/utils";
+import { UserType } from "@/app/utils/types";
 import axios from "axios";
 
 export async function signup(user: UserType) {

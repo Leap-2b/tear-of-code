@@ -1,6 +1,5 @@
 "use client";
 import { signIn } from "@/actions/signin";
-import { UserType } from "@/server/utils";
 import { useRouter } from "next/navigation";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -8,6 +7,7 @@ import { signup } from "@/actions/signup";
 import axios from "axios";
 import { setLocal } from "../utils/handle-local";
 import { Loader } from "../(auth)/auth/_compoments/Loader";
+import { UserType } from "../utils/types";
 
 type UserContextType = {
   user?: UserType | null | undefined;
@@ -15,21 +15,10 @@ type UserContextType = {
 
   createUser: (user: UserType) => Promise<void>;
   logout: () => void;
+  setUser: React.Dispatch<React.SetStateAction<UserType | null>>;
 };
 
-const defaultContext: UserContextType = {
-  user: null,
-  logout: () => {},
-
-  createUser: async () => {
-    throw new Error("Auth context not initialized");
-  },
-  login: async () => {
-    throw new Error("Auth context not initialized");
-  },
-};
-
-const UserContext = createContext<UserContextType>(defaultContext);
+const UserContext = createContext<UserContextType>({} as UserContextType);
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const { push } = useRouter();
@@ -116,7 +105,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     );
 
   return (
-    <UserContext.Provider value={{ user, login, createUser, logout }}>
+    <UserContext.Provider value={{ user, setUser, login, createUser, logout }}>
       {children}
     </UserContext.Provider>
   );

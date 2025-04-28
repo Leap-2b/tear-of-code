@@ -13,6 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import FavoriteServices from "./FavoriteServices";
 
 export const HomePage = () => {
   const [categories, setCategories] = useState<CategoryType[] | null>(null);
@@ -61,6 +62,7 @@ export const HomePage = () => {
             ))}
           </CarouselContent>
         </Carousel>
+        <FavoriteServices />
         <div className="w-full py-4 md:py-6 flex flex-col gap-8 items-center ">
           <h3 className="text-[36px] font-[700] ">Манай үйлчилгээ</h3>
 

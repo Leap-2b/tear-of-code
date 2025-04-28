@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
     } else {
       const allCategory = await CategoryModel.find();
       return NextResponse.json(
-        { message: "Бүх ангиллууд амжилттай уншигдлаа.", data: allCategory },
+        { message: "Бүх ангиллууд амжилттай уншигдлаа.", allCategory },
         { status: 200 }
       );
     }

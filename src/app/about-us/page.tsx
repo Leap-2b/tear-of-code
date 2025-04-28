@@ -1,33 +1,24 @@
-import React from "react";
-import { OurValues } from "./_components/OurValues";
-import { History } from "./_components/History";
-import { MeetTeam } from "./_components/MeetTeam";
-import { CommentsRate } from "./_components/CommentsRate";
-import { Stats } from "./_components/Stats";
-import { VisitUs } from "./_components/VisitUs";
-import { Ready } from "./_components/Ready";
-import { OurStory } from "./_components/OurStory";
+"use client";
+import HeroSection from "./_components/HeroSection";
+import OurStorySection from "./_components/OurStorySection";
+import { ValuesSection } from "./_components/ValuesSection";
+import { TeamSection } from "./_components/TeamSection";
+import { TestimonialsSection } from "./_components/TestimonialsSection";
+import { StatsSection } from "./_components/StatsSection";
+import { LocationHoursSection } from "./_components/ LocationHoursSection";
+import { CTASection } from "./_components/CTASection";
 
-const AboutUsPage = () => {
+export default function AboutPage() {
   return (
-    <div className="w-full h-full bg-[#ffffff] ">
-      <OurStory />
-
-      <History />
-
-      <OurValues />
-
-      <MeetTeam />
-
-      <CommentsRate />
-
-      <Stats />
-
-      <VisitUs />
-
-      <Ready />
+    <div className="flex min-h-screen flex-col">
+      <HeroSection />
+      <OurStorySection />
+      <ValuesSection />
+      <TeamSection />
+      <TestimonialsSection />
+      <StatsSection />
+      <LocationHoursSection />
+      <CTASection />
     </div>
   );
-};
-
-export default AboutUsPage;
+}

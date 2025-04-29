@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 import axios from "axios";
-import { StaffType } from "@/server/utils";
+import { StaffType } from "../utils/types";
 
 type StaffContextType = {
   staffs: StaffType[] | undefined;

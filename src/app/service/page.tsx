@@ -110,7 +110,7 @@ export default function Service() {
   }
 
   return (
-    <div className="w-full h-full px-[16px] bg-white pt-4">
+    <div className="max-w-[1400px] mx-auto w-full h-full px-[16px] bg-white pt-4">
       <Tabs defaultValue="all">
         <TabsList className="px-4 py-1 bg-blue-50 w-full flex gap-2 overflow-x-auto">
           <TabsTrigger value="all" className="cursor-pointer">

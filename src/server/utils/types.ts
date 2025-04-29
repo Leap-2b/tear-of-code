@@ -27,6 +27,8 @@ export interface StaffType {
   about: string;
   rating: number;
   image: string;
+  phone: number;
+  location: string;
   category: CategoryType;
   profession: ProfessionEnum;
   services: ServiceType;

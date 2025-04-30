@@ -12,9 +12,9 @@ import { Loader } from "../(auth)/auth/_compoments/Loader";
 type UserContextType = {
   user?: UserType | null | undefined;
   login: (email: string, password: string) => Promise<void>;
-
   createUser: (user: UserType) => Promise<void>;
   logout: () => void;
+  setUser?: React.Dispatch<React.SetStateAction<UserType | null>>;
 };
 
 const defaultContext: UserContextType = {
@@ -116,7 +116,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     );
 
   return (
-    <UserContext.Provider value={{ user, login, createUser, logout }}>
+    <UserContext.Provider value={{ user, setUser, login, createUser, logout }}>
       {children}
     </UserContext.Provider>
   );

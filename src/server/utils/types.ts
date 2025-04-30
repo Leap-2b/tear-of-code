@@ -11,7 +11,7 @@ export interface UserType {
   password: string;
   phoneNumber?: string;
   username?: string;
-  favoriteStaff?: Schema.Types.ObjectId[];
+  favoriteStaff?: string[];
   favoriteServices?: Schema.Types.ObjectId[];
   createdAt?: Date;
   updatedAt?: Date;
